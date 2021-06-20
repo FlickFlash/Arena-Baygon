@@ -78,6 +78,8 @@
             padding: 20px;
             width: fit-content;
             height: fit-content;
+            min-width: 500px;
+            min-height: 300px;
             border-radius: 10px;
             box-shadow: 3px 3px 10px black;
             margin: auto; /* CIMA, DIREITA, BAIXO, ESQUERDA */
@@ -86,6 +88,51 @@
             /* flex-direction: row; NÃO PERCEBI DIFERENÇA NO EFEITO DO COMANDO */
             justify-content: center;
         }
+        table {
+            width: 700px;
+            border: 1px solid;
+            margin: 5px;
+            padding: 5px;
+        }
+        table, caption, thead, tfoot {
+            background-color: lightgreen;
+        }
+
+        caption {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: -1px;
+            border: 1px solid;
+            padding: 10px;
+        }
+
+        tfoot {
+            color: gray;
+        }
+
+        tr, th, td {
+            border: 1px solid;         
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: antiquewhite;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: lightgray;
+        }
+
+        tbody tr:nth-child(1) {
+            background-color: goldenrod;
+        } 
+
+        tbody tr:nth-child(2) {
+            background-color: aqua
+        } 
+
+        tbody tr:nth-child(3) {
+            background-color: coral;
+        } 
 
         footer {
             /* NÃO CONSEGUI FAZER O BACKGROUND PREENCHER TODA A LARGURA DA PÁGINA */
@@ -121,57 +168,91 @@
                 <li><a href="acesso.html" style="color: #F93">Provisório</a></li>
             </ul>
         </nav>
-<!-- TESTE DE AJUSTE LATERAL E DE ALTURA PARA A CAIXA DE TEXTO -->
-        <article><p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>! Associação Baygon
-                Associação BaygonAssociação Baygon
-                Associação BaygonAssociação Baygon
-                Associação BaygonAssociação Baygon
-                Associação BaygonAssociação Baygon
-                Associação BaygonAssociação Baygon
-                Associação BaygonAssociação Baygon
-                Associação BaygonAssociação Baygon
-                Associação Baygon</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            
+        <article>
+            <!-- ESTRUTURA DE TABELA PERFEITA -->
+            <!-- PRECISO COLETAR OS DADOS DA TABELA AUTOMATICAMENTE (FIREBASE + JAVASCRIPT?) -->
+            <!-- PRECISO ORDENAR OS JOGADORES DA TABELA, CONFORME RANKING, AUTOMATICAMENTE (JAVASCRIPT?) -->
+            <!-- FALTA FINALIZAR DEMAIS TABELAS APÓS A DO RANKING GERAL ESTAR CONCLUÍDA -->
+            <table>
+                <caption>Ranking Geral - Temporada 8</caption>
+                <thead>
+                    <tr>
+                        <th>Jogador</th>
+                        <th>Presenças</th>
+                        <th>Vitórias</th>
+                        <th>Gols</th>
+                        <th>Assistências</th>
+                        <th>Pontuação Geral</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>José 'Zé' Dantas</td>
+                        <td>20</td>
+                        <td>25</td>
+                        <td>21</td>
+                        <td>15</td>
+                        <td>100</td>                    
+                    </tr>
+                    <tr>
+                        <td>João 'Pé de Feijão' Silva</td>
+                        <td>19</td>
+                        <td>15</td>
+                        <td>10</td>
+                        <td>5</td>
+                        <td>70</td>
+                    </tr>
+                    <tr>
+                        <td>Adilson 'Príncipe' Muritiba</td>
+                        <td>20</td>
+                        <td>20</td>
+                        <td>30</td>
+                        <td>10</td>
+                        <td>90</td>
+                    </tr>
+                    <tr>
+                        <td>Carlitos</td>
+                        <td>16</td>
+                        <td>15</td>
+                        <td>11</td>
+                        <td>5</td>
+                        <td>60</td>                    
+                    </tr>
+                    <tr>
+                        <td>Julio</td>
+                        <td>10</td>
+                        <td>5</td>
+                        <td>7</td>
+                        <td>5</td>
+                        <td>40</td>                    
+                    </tr>
+                        <td>Maicon</td>
+                        <td>14</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>8</td>
+                        <td>65</td>                    
+                    </tr>
+                    <tr>
+                        <td>Ruan</td>
+                        <td>12</td>
+                        <td>6</td>
+                        <td>8</td>
+                        <td>6</td>
+                        <td>50</td>                    
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Jogador</th>
+                        <th>Presenças</th>
+                        <th>Vitórias</th>
+                        <th>Gols</th>
+                        <th>Assistências</th>
+                        <th>Pontuação Geral</th>
+                    </tr>
+                </tfoot>
+            </table>
         </article>
         <footer>
             <!-- TAG "SMALL", USADA PARA COPYRIGHT NO FIM DO SITE-->
