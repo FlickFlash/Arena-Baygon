@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Júnior Dantas">
+    <meta name="generator" content="Visual Studio Code">
+    <meta name="Keywords" content="Associação Baygon, Arena Baygon, Futebol">
+    <title>Associação Baygon</title>
+    <style>
+        body {
+            height: 1000px;
+            /* PRECISO APRENDER A DEFINIR O PADRÃO DO BACKGROUND EM TODA A PÁGINA (O CINZA VOLTA A APARECER ONDE DEVERIA SER SÓ VERDE)*/
+            background: linear-gradient(to bottom, #bbbfc8 0, #bbbfc8 150px, green 0, green 800px, #bbbfc8 0, #bbbfc8 130px, green 0);
+        }
+
+        header {
+            background-color: #bbbfc8;
+        }
+
+        nav#login {
+            padding: 2px 2px;
+        }
+
+        nav#login a {
+            background-color: rgb(27, 170, 27);
+            border: 1px solid black;
+            padding: 2px 2px;
+            margin-left: -1px;
+        }
+
+        nav#login a:hover {
+            background-color: indianred;
+        }
+
+        ul {
+            margin: 0px;
+            padding: 0px;
+        }
+/* style="width: 90%;min-height: 100px; max-height: 130px; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;"> */
+        nav#menu ul {
+            /* position: relative; left: 50%; transform: translate(-50%);  NÃO FUNCIONOU */
+            /* O ajuste para centralizar foi feito "manualmente", preciso ajustar para visualização em celular */
+            white-space: nowrap;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            clear: both; /* ADICIONEI O COMANDO "CLEAR" E REMOVI "MARGIN-TOP" */
+        }
+
+        nav#menu li {
+            display: inline-block;
+            text-align: center;
+            margin-bottom: 20px;
+            margin-left: -4px;
+            border: 1px solid #F93; /* Decidir manter ou tirar o contorno */
+        }
+
+        nav#menu li a {
+            text-decoration: none;
+            display: block;
+            font: "Times New Roman";
+            font-size: 30px;
+            color: #F93;
+            background-color: rgb(75, 75, 75);
+            letter-spacing: -0.05em;
+            padding: 10px 30px;
+        }
+
+        nav#menu li a:hover {
+            background-color: indianred;
+        }
+
+        article {
+            background-color: white;
+            padding: 20px;
+            width: fit-content;
+            height: fit-content;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px black;
+            margin: auto; /* CIMA, DIREITA, BAIXO, ESQUERDA */
+            margin-top: 50px;
+            /* display: flex; FAZ O TEXTO SER ESCRITO TODO LADO A LADO, EM BLOCOS */
+            /* flex-direction: row; NÃO PERCEBI DIFERENÇA NO EFEITO DO COMANDO */
+            justify-content: center;
+        }
+
+        article p {
+            margin-right: 10px;
+        }
+
+        input {
+	        display:block;
+            text-align: left;
+        	margin-bottom:20px;
+        	border:1px solid #999;
+        	padding:8px;
+        	border-radius:3px;
+        }
+
+        footer {
+            /* NÃO CONSEGUI FAZER O BACKGROUND PREENCHER TODA A LARGURA DA PÁGINA */
+            margin-top: 20px; /* PRECISO DEFINIR O MINIMO DA MARGEM, PARA O CASO DE A PÁGINA SER CURTA */
+            background-color: #bbbfc8;
+            padding: 5px 10px;            
+        }
+
+    </style>
+</head>
+
+<body>
+    <main>
+        <header>
+            <!-- CONSEGUIR IMAGEM QUE ALTERE DE "ARENA" PARA "ASSOCIAÇÃO" -->
+            <img src="Baygon/arena.baygon.jpg" alt="Arena Baygon"
+                style="width: 90%;min-height: 100px; max-height: 130px; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+                <!-- AJUSTE "AUTOMÁTICO" DA IMAGEM DE "TÍTULO" -->
+        </header>
+
+        <nav id=login>
+            <!-- ELEMENTOS "REGISTRO" E "LOGIN" DEVERIAM ESTAR EM "NAV", MAS INVADEM "ARTICLE"-->
+            <a href="registro.html" style="color: #F93; float: right; text-decoration: none;">Registre-se</a>
+            <a href="login.html" style="color: #F93; float: right; text-decoration: none;">Login</a> <!-- &nbsp; (ESPAÇO) -->
+        </nav>
+
+        <article><p style="font-size: larger; margin-bottom: 20px; text-align: center;">Crie sua conta na <strong>Associação Baygon</strong></p>
+            <p style="text-align: justify;">Leia os <a href="termosdeuso.html">Termos de Uso</a> e as <a href="politicasdeprivacidade.html">Políticas de Privacidade</a> antes de preencher seus dados.</p>
+            <form action="DESTINO_BANCO_DE_DADOS" method="POST">
+                <label for="nomeuser">Nome de exibição*</label>
+                <input type="text" name="nomeuser" id="nomeuser" maxlength="100" size="50" required autofocus placeholder="Insira o nome pelo qual outros usuários podem identificar você">
+
+                <label for="username">Nome de usuário*</label>
+                <input type="text" name="nomeuser" id="nomeuser" maxlength="16" size="30" required placeholder="Insira um nome para acessar o site">
+
+                <label for="password1">Senha de acesso*</label>
+                <input type="password" name="password1" id="password1" minlength="8" maxlength="15" size="25" required hidden placeholder="Insira uma senha de 8 a 15 dígitos">
+
+                <label for="password2">Repita a senha*</label>
+                <input type="password" name="password2" id="password2" minlength="8" maxlength="15" size="25" required hidden placeholder="Repita a senha acima">
+
+                <label for="email">Digite seu e-mail*</label>
+                <input type="email" name="email" id="email" maxlength="50" size="40" required placeholder="Digite seu e-mail para validar seu cadastro">
+
+                <label for="nascimento">Data de nascimento</label>
+                <input type="date" name="nascimento" id="nascimento">
+
+                <p style="text-align: justify;"><input type="checkbox" name="lidoeconcordado" id="lidoeconcordado" style="float:left; margin-bottom: 0;">&nbsp;Eu li e concordo com os <a href="termosdeuso.html">Termos de Uso</a> e as <a href="politicasdeprivacidade.html">Políticas de Privacidade</a> do site.</p>
+
+                <input type="submit" value="Enviar" name="enviarreg" id="enviarreg">
+            </form>
+            
+            <p>Os campos com '*' são campos de preenchimento obrigatório.</p>
+            <p>Quer deixar para uma outra hora? <a href="index.html">Volte à página principal</a></p>
+            <p>Já tem uma conta? <a href="login.html">Faça login no site</a> </p>
+        </article>
+        <footer>
+            <!-- TAG "SMALL", USADA PARA COPYRIGHT NO FIM DO SITE-->
+           <small>&copy; Associação Baygon</small>
+        </footer>
+    </main>
+</body>
+
+</html>

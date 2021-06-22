@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Júnior Dantas">
+    <meta name="generator" content="Visual Studio Code">
+    <meta name="Keywords" content="Associação Baygon, Arena Baygon, Futebol">
+    <title>Associação Baygon</title>
+    <style>
+        body {
+            height: 1000px;
+            /* PRECISO APRENDER A DEFINIR O PADRÃO DO BACKGROUND EM TODA A PÁGINA (O CINZA VOLTA A APARECER ONDE DEVERIA SER SÓ VERDE)*/
+            background: linear-gradient(to bottom, #bbbfc8 0, #bbbfc8 150px, green 0, green 800px, #bbbfc8 0, #bbbfc8 130px, green 0);
+        }
+
+        header {
+            background-color: #bbbfc8;
+        }
+
+        nav#login {
+            padding: 2px 2px;
+        }
+
+        nav#login a {
+            background-color: rgb(27, 170, 27);
+            border: 1px solid black;
+            padding: 2px 2px;
+            margin-left: -1px;
+        }
+
+        nav#login a:hover {
+            background-color: indianred;
+        }
+
+        ul {
+            margin: 0px;
+            padding: 0px;
+        }
+/* style="width: 90%;min-height: 100px; max-height: 130px; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;"> */
+        nav#menu ul {
+            /* position: relative; left: 50%; transform: translate(-50%);  NÃO FUNCIONOU */
+            /* O ajuste para centralizar foi feito "manualmente", preciso ajustar para visualização em celular */
+            white-space: nowrap;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            clear: both; /* ADICIONEI O COMANDO "CLEAR" E REMOVI "MARGIN-TOP" */
+        }
+
+        nav#menu li {
+            display: inline-block;
+            text-align: center;
+            margin-bottom: 20px;
+            margin-left: -4px;
+            border: 1px solid #F93; /* Decidir manter ou tirar o contorno */
+        }
+
+        nav#menu li a {
+            text-decoration: none;
+            display: block;
+            font: "Times New Roman";
+            font-size: 30px;
+            color: #F93;
+            background-color: rgb(75, 75, 75);
+            letter-spacing: -0.05em;
+            padding: 10px 30px;
+        }
+
+        nav#menu li a:hover {
+            background-color: indianred;
+        }
+
+        nav#videomenu {
+            /* PENSAR NA POSSIBILIDADE DE MODIFICAR PARA MENU HORIZONTAL ABAIXO DO MENU PRINCIPAL*/
+            margin: 10px 10px;
+            list-style:none;
+            float: left;
+        }
+
+        nav#videomenu p {
+            text-align: center;
+            margin-bottom: -17px;
+            background-color: rgb(126, 38, 38);
+            border: 1px solid;
+            padding: 5px 10px;
+        }
+
+        nav#videomenu a {
+            font-size: 15px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        nav#videomenu p:hover {
+            background-color: tomato;
+        }
+
+        article {
+            background-color: white;
+            padding: 20px;
+            width: fit-content;
+            height: fit-content;
+            min-width: 500px;
+            min-height: 300px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px black;
+            margin: auto; /* CIMA, DIREITA, BAIXO, ESQUERDA */
+            text-align: center;
+            /* display: flex; FAZ O TEXTO SER ESCRITO TODO LADO A LADO, EM BLOCOS */
+            /* flex-direction: row; NÃO PERCEBI DIFERENÇA NO EFEITO DO COMANDO */
+            justify-content: center;
+        }
+
+        footer {
+            /* NÃO CONSEGUI FAZER O BACKGROUND PREENCHER TODA A LARGURA DA PÁGINA */
+            margin-top: 20px; /* PRECISO DEFINIR O MINIMO DA MARGEM, PARA O CASO DE A PÁGINA SER CURTA */
+            background-color: #bbbfc8;
+            padding: 5px 10px;            
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <header>
+            <!-- CONSEGUIR IMAGEM QUE ALTERE DE "ARENA" PARA "ASSOCIAÇÃO" -->
+            <img src="Baygon/arena.baygon.jpg" alt="Arena Baygon"
+                style="width: 90%;min-height: 100px; max-height: 130px; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+                <!-- AJUSTE "AUTOMÁTICO" DA IMAGEM DE "TÍTULO" -->
+        </header>
+
+        <nav id=login>
+            <!-- ELEMENTOS "REGISTRO" E "LOGIN" DEVERIAM ESTAR EM "NAV", MAS INVADEM "ARTICLE"-->
+            <a href="registro.html" style="color: #F93; float: right; text-decoration: none;">Registre-se</a>
+            <a href="login.html" style="color: #F93; float: right; text-decoration: none;">Login</a> <!-- &nbsp; (ESPAÇO) -->
+        </nav>
+        <nav id="menu">
+            <!-- ELEMENTOS DO MENU FICARAM DESCENTRALIZADOS (PARA A ESQUERDA) POR CAUSA DOS ELEMENTOS "REGISTRO" E "LOGIN", 
+                SENDO QUE SE CHOCAM QUANDO A JANELA É REDUZIDA -->
+            <ul>
+                <li><a href="index.html" style="color: #F93;">Início</a></li>
+                <li><a href="videos.html" style="color: #F93">Vídeos</a></li>
+                <li><a href="membros.html" style="color: #F93">Membros</a></li>
+                <li><a href="Rankings.html" style="color: #F93">Rankings</a></li>
+                <li><a href="acesso.html" style="color: #F93">Provisório</a></li>
+            </ul>
+        </nav>
+        <nav id="videomenu">
+            <li id="tempatual"><a href="temporada9"><p>Temporada 9</p></a></li>  
+            <li><a href="torneiosfinais.html"><p>Torneios Finais</p></a></li>
+            <li><a href="temporada8"><p>Temporada 8</p></a></li>
+            <li><a href="temporada7"><p>Temporada 7</p></a></li>
+            <li><a href="temporada6"><p>Temporada 6</p></a></li>
+            <li><a href="temporada5"><p>Temporada 5</p></a></li>
+            <li><a href="temporada4"><p>Temporada 4</p></a></li>
+            <li><a href="temporada3"><p>Temporada 3</p></a></li>
+            <li><a href="temporada2"><p>Temporada 2</p></a></li>
+            <li><a href="temporada1"><p>Temporada 1</p></a></li>
+        </nav>
+        <article><p>Área de <strong>Vídeos</strong>!</p>
+            
+        </article>
+        <footer>
+            <!-- TAG "SMALL", USADA PARA COPYRIGHT NO FIM DO SITE-->
+           <small>&copy; Associação Baygon</small>
+        </footer>
+    </main>
+</body>
+
+</html>
