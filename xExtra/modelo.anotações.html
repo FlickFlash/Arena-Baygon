@@ -8,10 +8,11 @@
     <meta name="author" content="Júnior Dantas">
     <meta name="generator" content="Visual Studio Code">
     <meta name="Keywords" content="Associação Baygon, Arena Baygon, Futebol">
-    <title>Arena Baygon</title>
+    <title>Associação Baygon</title>
     <style>
         body {
             height: 1000px;
+            /* PRECISO APRENDER A DEFINIR O PADRÃO DO BACKGROUND EM TODA A PÁGINA (O CINZA VOLTA A APARECER ONDE DEVERIA SER SÓ VERDE)*/
             background: linear-gradient(to bottom, #bbbfc8 0, #bbbfc8 150px, green 0, green 800px, #bbbfc8 0, #bbbfc8 130px, green 0);
         }
 
@@ -38,13 +39,15 @@
             margin: 0px;
             padding: 0px;
         }
+/* style="width: 90%;min-height: 100px; max-height: 130px; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;"> */
         nav#menu ul {
-
+            /* position: relative; left: 50%; transform: translate(-50%);  NÃO FUNCIONOU */
+            /* O ajuste para centralizar foi feito "manualmente", preciso ajustar para visualização em celular */
             white-space: nowrap;
             display: flex;
             flex-direction: row;
             justify-content: center;
-            clear: both;
+            clear: both; /* ADICIONEI O COMANDO "CLEAR" E REMOVI "MARGIN-TOP" */
         }
 
         nav#menu li {
@@ -52,7 +55,7 @@
             text-align: center;
             margin-bottom: 20px;
             margin-left: -4px;
-            border: 1px solid #F93;
+            border: 1px solid #F93; /* Decidir manter ou tirar o contorno */
         }
 
         nav#menu li a {
@@ -79,13 +82,16 @@
             min-height: 300px;
             border-radius: 10px;
             box-shadow: 3px 3px 10px black;
-            margin: auto;
+            margin: auto; /* CIMA, DIREITA, BAIXO, ESQUERDA */
             text-align: center;
+            /* display: flex; FAZ O TEXTO SER ESCRITO TODO LADO A LADO, EM BLOCOS */
+            /* flex-direction: row; NÃO PERCEBI DIFERENÇA NO EFEITO DO COMANDO */
             justify-content: center;
         }
 
         footer {
-            margin-top: 20px;
+            /* NÃO CONSEGUI FAZER O BACKGROUND PREENCHER TODA A LARGURA DA PÁGINA */
+            margin-top: 20px; /* PRECISO DEFINIR O MINIMO DA MARGEM, PARA O CASO DE A PÁGINA SER CURTA */
             background-color: #bbbfc8;
             padding: 5px 10px;            
         }
@@ -95,15 +101,20 @@
 <body>
     <main>
         <header>
+            <!-- CONSEGUIR IMAGEM QUE ALTERE DE "ARENA" PARA "ASSOCIAÇÃO" -->
             <img src="Baygon/arena.baygon.jpg" alt="Arena Baygon"
                 style="width: 90%;min-height: 100px; max-height: 130px; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+                <!-- AJUSTE "AUTOMÁTICO" DA IMAGEM DE "TÍTULO" -->
         </header>
 
         <nav id=login>
+            <!-- ELEMENTOS "REGISTRO" E "LOGIN" DEVERIAM ESTAR EM "NAV", MAS INVADEM "ARTICLE"-->
             <a href="registro.html" style="color: #F93; float: right; text-decoration: none;">Registre-se</a>
-            <a href="login.html" style="color: #F93; float: right; text-decoration: none;">Login</a>
+            <a href="login.html" style="color: #F93; float: right; text-decoration: none;">Login</a> <!-- &nbsp; (ESPAÇO) -->
         </nav>
         <nav id="menu">
+            <!-- ELEMENTOS DO MENU FICARAM DESCENTRALIZADOS (PARA A ESQUERDA) POR CAUSA DOS ELEMENTOS "REGISTRO" E "LOGIN", 
+                SENDO QUE SE CHOCAM QUANDO A JANELA É REDUZIDA -->
             <ul>
                 <li><a href="index.html" style="color: #F93;">Início</a></li>
                 <li><a href="videos.html" style="color: #F93">Vídeos</a></li>
@@ -116,6 +127,7 @@
             
         </article>
         <footer>
+            <!-- TAG "SMALL", USADA PARA COPYRIGHT NO FIM DO SITE-->
            <small>&copy; Associação Baygon</small>
         </footer>
     </main>

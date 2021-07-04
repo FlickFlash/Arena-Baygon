@@ -74,9 +74,9 @@
             background-color: white;
             padding: 20px;
             width: fit-content;
+            min-width: 430px;
             height: fit-content;
-            min-width: 500px;
-            min-height: 300px;
+            min-height: 500px;
             border-radius: 10px;
             box-shadow: 3px 3px 10px black;
             margin: auto;
@@ -84,11 +84,22 @@
             justify-content: center;
         }
 
+        img#campo {
+            float: left;
+        }
+
+        div.textocampo {
+            text-align: justify;
+            margin-bottom: 5px;
+            margin-left: 260px;
+        }
+
         footer {
             margin-top: 20px;
             background-color: #bbbfc8;
             padding: 5px 10px;            
         }
+
     </style>
 </head>
 
@@ -108,12 +119,20 @@
                 <li><a href="index.html" style="color: #F93;">Início</a></li>
                 <li><a href="videos.html" style="color: #F93">Vídeos</a></li>
                 <li><a href="membros.html" style="color: #F93">Membros</a></li>
-                <li><a href="rankings.html" style="color: #F93">Rankings</a></li>
+                <li><a href="Rankings.html" style="color: #F93">Rankings</a></li>
                 <li><a href="partidas.html" style="color: #F93">Partidas</a></li>
             </ul>
         </nav>
-        <article><p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            
+        <article><h1><strong>Jogo 1</strong></h1>
+            <div><img id="campo" src="baygon/VerticalCampoArenaBaygon.jpg" alt="Campo Arena Baygon" width="250px" height="400px"></div>
+            <p><span>&nbsp;</span></p>
+            <div class="textocampo"> <!-- &#11014;&#11015; -->[0m] &#128256; Substituição de <strong>Iago</strong> por <strong>Igor</strong><br></div>
+            <div class="textocampo"> [1m] &#9917; Gol de <strong>Zé</strong> (&#128095; Passe de <strong>Fernando</strong>)<br></div>
+            <div class="textocampo"> [2m] &#129000; Cartão Amarelo para <strong>Tuta</strong></div>
+            <div class="textocampo"> [4m] &#128998; Cartão Azul para <strong>Ari</strong></div>
+            <div class="textocampo"> [5m] &#128997; Cartão Vermelho para <strong>Milson</strong></div>
+            <div class="textocampo"> [10m] &#128308; &#127942; <!-- &#127937; --> Fim de jogo. <strong>Equipe Vermelha (Adilson)</strong> venceu!</div>
+            <!-- <div class="textocampo"> <strong></strong></div> -->
         </article>
         <footer>
            <small>&copy; Associação Baygon</small>
