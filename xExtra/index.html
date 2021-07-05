@@ -11,9 +11,10 @@
     <title>Arena Baygon</title>
     <style>
         body {
-            height: 1000px;
-            /* PRECISO APRENDER A DEFINIR O PADRÃO DO BACKGROUND EM TODA A PÁGINA (O CINZA VOLTA A APARECER ONDE DEVERIA SER SÓ VERDE)*/
-            background: linear-gradient(to bottom, #bbbfc8 0, #bbbfc8 150px, green 0, green 800px, #bbbfc8 0, #bbbfc8 130px, green 0);
+
+            /* (RESOLVIDO) PRECISO APRENDER A DEFINIR O PADRÃO DO BACKGROUND EM TODA A PÁGINA (O CINZA VOLTA A APARECER ONDE DEVERIA SER SÓ VERDE)*/
+            /* NOVO PROBLEMA - SE A PÁGINA FOR MUITO CURTA O PADRÃO DA COR CINZA RECOMEÇA */
+            background: linear-gradient(to bottom,  #bbbfc8 150px, green 151px, green 50000px);
         }
 
         header {
@@ -43,7 +44,7 @@
         nav#menu ul {
             /* position: relative; left: 50%; transform: translate(-50%);  NÃO FUNCIONOU */
             /* O ajuste para centralizar foi feito "manualmente", preciso ajustar para visualização em celular */
-            white-space: nowrap;
+            /* white-space: nowrap; */ /* NÃO FEZ DIFERENÇA */
             display: flex;
             flex-direction: row;
             justify-content: center;
@@ -51,8 +52,10 @@
         }
 
         nav#menu li {
+            width: 20%; /* MELHOR SOLUÇÃO ENCONTRADA PARA O MENU FICAR DENTRO DA TELA, MAS É NECESSÁRIO CORRIGIR O PADDING LATERAL */
             display: inline-block;
             text-align: center;
+            margin-top: 10px;
             margin-bottom: 20px;
             margin-left: -4px;
             border: 1px solid #F93; /* Decidir manter ou tirar o contorno */
@@ -60,13 +63,24 @@
 
         nav#menu li a {
             text-decoration: none;
-            display: block;
+            display: block; 
             font: "Times New Roman";
-            font-size: 30px;
+            font-size: 20px;
+            /* @media (min-width: 480px) {
+                p{
+                    font-size: 30px;
+                }
+            }
+
+            @media (max-width: 479px) {
+                p{
+                    font-size: 10px;
+                }
+            } */
             color: #F93;
             background-color: rgb(75, 75, 75);
             letter-spacing: -0.05em;
-            padding: 10px 30px;
+            padding: 10px 0px;
         }
 
         nav#menu li a:hover {
@@ -78,6 +92,9 @@
             padding: 20px;
             width: fit-content;
             height: fit-content;
+            /* MIN-HEIGHT ADICIONADO PARA CORRIGIR O CINZA DO BACKGROUND DE APARECER */
+            min-height: 450px;
+            min-width: 400px;
             border-radius: 10px;
             box-shadow: 3px 3px 10px black;
             margin: auto; /* CIMA, DIREITA, BAIXO, ESQUERDA */
@@ -90,8 +107,12 @@
         footer {
             /* NÃO CONSEGUI FAZER O BACKGROUND PREENCHER TODA A LARGURA DA PÁGINA */
             margin-top: 20px; /* PRECISO DEFINIR O MINIMO DA MARGEM, PARA O CASO DE A PÁGINA SER CURTA */
+            margin-left: -10px; /* PREENCHIDO O ESPAÇO DA ESQUERDA */
+            margin-right: -8px; /* PREENCHIDO O ESPAÇO DA DIREITA, MAS AINDA É PRECISO OTIMIZAR PARA SMARTPHONES */
+            margin-bottom: -10px; /* MARGEM DE SEGURANÇA */
             background-color: #bbbfc8;
-            padding: 5px 10px;            
+            padding: 5px 10px; 
+            width: auto;        
         }
     </style>
 </head>
@@ -101,7 +122,7 @@
         <header>
             <!-- CONSEGUIR IMAGEM QUE ALTERE DE "ARENA" PARA "ASSOCIAÇÃO" -->
             <img src="Baygon/arena.baygon.jpg" alt="Arena Baygon"
-                style="width: 90%;min-height: 100px; max-height: 130px; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+                style="width: 100%;min-height: 140px; max-height: 140px; display: block; margin: auto 0px 10px 5px;">
                 <!-- AJUSTE "AUTOMÁTICO" DA IMAGEM DE "TÍTULO" -->
         </header>
 
@@ -123,55 +144,7 @@
         </nav>
 <!-- TESTE DE AJUSTE LATERAL E DE ALTURA PARA A CAIXA DE TEXTO -->
         <article><p>Seja bem-vindo à <strong>Arena Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>! Associação Baygon
-                Associação BaygonAssociação Baygon
-                Associação BaygonAssociação Baygon
-                Associação BaygonAssociação Baygon
-                Associação BaygonAssociação Baygon
-                Associação BaygonAssociação Baygon
-                Associação BaygonAssociação Baygon
-                Associação BaygonAssociação Baygon
-                Associação Baygon</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            <p>Seja bem-vindo à <strong>Associação Baygon</strong>!</p>
-            
+
         </article>
         <footer>
             <!-- TAG "SMALL", USADA PARA COPYRIGHT NO FIM DO SITE-->
