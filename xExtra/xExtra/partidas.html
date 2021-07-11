@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Júnior Dantas">
+    <meta name="generator" content="Visual Studio Code">
+    <meta name="Keywords" content="Associação Baygon, Arena Baygon, Futebol">
+    <title>Arena Baygon</title>
+    <style>
+    
+        body {
+            background: linear-gradient(to bottom,  #bbbfc8 150px, green 151px, green 50000px);
+        }
+
+        header#imagemBaygon {
+            background-color: #bbbfc8;
+
+        }
+
+        nav#login {
+            padding: 0px 0px;
+            margin-bottom: 45px;
+            margin-right: -5px;
+        }
+
+        nav#login a {
+            background-color: rgb(27, 170, 27);
+            border: 1px solid black;
+            padding: 2px 2px;
+            margin-left: -1px;
+        }
+
+        nav#login a:hover {
+            background-color: indianred;
+        }
+
+        @media (min-width: 700px) {
+            nav#menu ul {
+                white-space: nowrap;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                margin: 0px;
+                padding: 0px;
+                clear: both;
+            }
+
+            nav#menu li {
+                display: inline-block;
+                text-align: center;
+                margin-bottom: 20px;
+                margin-left: -2px;
+                margin-right: -2px;
+                border: 1px solid #F93;
+             }
+
+            nav#menu li a {
+                text-decoration: none;
+                display: block;
+                font: "Times New Roman";
+                font-size: 30px;
+                color: #F93;
+                background-color: rgb(75, 75, 75);
+                letter-spacing: -0.05em;
+                padding: 10px 30px;
+            }
+
+            nav#menu li a:hover {
+                background-color: indianred;
+            }
+        }
+
+        @media (min-width: 580px) and (max-width: 719px) {
+            nav#menu ul {
+                white-space: nowrap;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                margin: 0px;
+                padding: 0px;
+                clear: both;
+            }
+
+            nav#menu li {
+                display: inline-block;
+                text-align: center;
+                margin-bottom: 20px;
+                margin-left: -2px;
+                margin-right: -2px;
+                border: 1px solid #F93;
+             }
+
+            nav#menu li a {
+                text-decoration: none;
+                display: block;
+                font: "Times New Roman";
+                font-size: 25px;
+                color: #F93;
+                background-color: rgb(75, 75, 75);
+                letter-spacing: -0.05em;
+                padding: 10px 23px;
+            }
+
+            nav#menu li a:hover {
+                background-color: indianred;
+            }
+        }
+
+        @media (max-width: 599px) {
+            nav#menu ul {
+                white-space: nowrap;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                margin: 0px;
+                padding: 0px;
+                clear: both;
+            }
+
+            nav#menu li {
+                display: inline-block;
+                text-align: center;
+                margin-bottom: 20px;
+                margin-left: -2px;
+                margin-right: -2px;
+                border: 1px solid #F93;
+             }
+
+            nav#menu li a {
+                text-decoration: none;
+                display: block;
+                font: "Times New Roman";
+                font-size: 20px;
+                color: #F93;
+                background-color: rgb(75, 75, 75);
+                letter-spacing: -0.05em;
+                padding: 10px 20px;
+            }
+
+            nav#menu li a:hover {
+                background-color: indianred;
+            }
+        }
+
+        main {
+            background-color: white;
+            width: fit-content;
+            margin: 0px auto;
+            border: 1px solid;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px black;
+            overflow: hidden;
+            clear: left;
+        }
+
+        header#jogoNumero {
+            background-color: white;
+            text-align: center;
+            margin-right: auto;
+        }
+
+        article {
+            max-width: 1100px;
+            max-height: 400px;
+            margin: 5px auto 10px 255px;
+
+            border: 1px solid;
+            overflow: auto;
+        }
+
+        section.quadroJogo {
+            border: 1px solid; /* DELIMITAÇÃO ENTRE CADA JOGO */
+            padding: 0px 5px 10px 5px; /* (RESOLVIDO com ::after OU OVERFLOW) A borda varia muito com relação a quantidade de texto e largura da tela */
+            margin-bottom: -1px; /* JUNTA AS DUAS LINHAS DA MARGEM INFERIOR E SUPERIOR DA SEGUINTE EM UMA SÓ */
+            overflow: hidden; /* ALTERNATIVA MAIS SIMPLES QUE O "AFTER" */
+        }
+
+        .quadroJogo h1 {
+            clear: both;
+        }
+
+        /* SUBSTITUÍDO PELO "OVERFLOW" 
+        .quadrojogo::after {
+            content: "";
+            display: table;
+            clear: both;
+             CÓDIGO PARA A BORDA INCLUIR TODO O CONTEÚDO QUE ESTÁ FLUTUANDO 
+        } */
+
+        #placarJogo {
+            border: 1px solid;
+            text-align: center;
+            margin: 10px auto;
+            background-color: lightgray;
+            /* width: 280px; A BORDA PARECE DEIXAR MAIS HARMONIOSO OCUPANDO AS LATERAIS TODAS */
+            clear: both;
+        }
+
+        .jogadorCampo img#zeJ {
+            position: relative;
+            top: 130px;
+            left: 50px;
+   
+        }
+
+        .jogadorCampo img#adJ {     
+            position: relative;   
+            top: 75px;
+            left: 150px;
+        }
+
+        aside {
+            float: left;
+            background-image: url(baygon/VerticalCampoArenaBaygon.EDIT.jpg);
+            height: auto;
+            width: 250px;
+            height: 400px;
+            margin: 0px 0px 0px 0px;
+            border: 1px solid;
+        }
+
+        article.textoCampo {
+            text-align: left; /* o justificado ficava estranho, deixando muito espaço entre as palavras */
+            margin-bottom: 5px;
+            margin-left: 256px;
+            border: 1px solid; /* DECIDIR SE COM OU SEM BORDA */
+            padding-left: 1px;
+            padding-right: 1px;
+        }
+
+        .textoCampo:nth-child(even) {
+            background-color: antiquewhite;
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+
+        .textoCampo:nth-child(odd) {
+            background-color: lightgray;
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+
+        span.iconePasse {
+            font-size: large;
+            position: relative;
+            top: -3px;
+        }
+
+        footer {
+            margin: 20px -8px -10px -10px;
+            background-color: #bbbfc8;
+            padding: 5px 10px;    
+            clear: both;        
+        }
+
+    </style>
+</head>
+
+<body>
+    
+    <header id="imagemBaygon">
+        <img src="Baygon/arena.baygon.jpg" alt="Arena Baygon"
+            style="width: 100%; height: 140px; display: block; margin: auto 0px 10px 5px;">
+    </header>
+
+        <nav id=login>
+            <a href="registro.html" style="color: #F93; float: right; text-decoration: none;">Registre-se</a>
+            <a href="login.html" style="color: #F93; float: right; text-decoration: none;">Login</a>
+        </nav>
+        <nav id="menu">
+            <ul>
+                <li><a href="index.html" style="color: #F93;">Início</a></li>
+                <li><a href="videos.html" style="color: #F93">Vídeos</a></li>
+                <li><a href="membros.html" style="color: #F93">Membros</a></li>
+                <li><a href="rankings.html" style="color: #F93">Rankings</a></li>
+                <li><a href="partidas.html" style="color: #F93">Partidas</a></li>
+            </ul>
+        </nav>
+
+        <main>
+        
+            <!-- 🔴&#128308; 🟠&#128992; 🟡&#128993; 🟢&#128994; 🔵&#128309; 🟣&#128995; ⚫️&#9899; ⚪️&#9898; 🟤&#128996;
+            PRECISO VERIFICAR TODAS AS CORES DE COLETES DA ASSOCIAÇÃO -->
+            <section class="quadroJogo">
+                <header id="jogoNumero"><h1><strong>Jogo 3</strong></h1></header>             
+                <div id="placarJogo"><strong>Time Vermelho</strong> &#128308; 1 x 0 &#128309; <strong>Time Azul</strong></div>
+                <!-- ESTÁ FICANDO UM ESPAÇO EM BRANCO EQUIVALENTE AO LOCAL INICIAL DAS FOTOS
+                <div class="jogadorCampo"><img id="zeJ" src="baygon/B/Ze.j.png" alt="Atacante 1"></div>
+                <div class="jogadorCampo"><img id="adJ" src="baygon/B/Ad.j.png" alt="Atacante 2"></div> -->
+                <aside>            
+                    <div class="jogadorCampo"><img id="zeJ" src="baygon/B/Ze.j.png" alt="Atacante 1"></div>
+                    <div class="jogadorCampo"><img id="adJ" src="baygon/B/Ad.j.png" alt="Atacante 2"></div>
+                </aside>
+                <article>
+                    <div class="textoCampo"> &#128308; Time Vermelho: <strong>Ályson</strong>, <strong>Tuta</strong>, <strong>Fernando</strong>, <strong>Zé</strong>, <strong>Adilson</strong></div>
+                    <div class="textoCampo"> &#128309; Time Azul: <strong>Dau</strong>, <strong>Milson</strong>, <strong>Ari</strong>, <strong>Iago</strong>, <strong>Antonio</strong></div>
+                    <div class="textoCampo"> <!-- &#11014;&#11015; -->&#128256; Substituição de <strong>Iago</strong> por <strong>Igor</strong><br></div>
+                    <div class="textoCampo"> &#128226; <b>Início de partida</b><!-- na <strong>Arena Baygon</strong>--></div>
+                    <div class="textoCampo"> [1m] <!--&#10060;-->&#129349; Chute na trave por <strong>Adilson</strong></div>
+                    <div class="textoCampo"> [2m] &#9917; Gol de <strong>Zé</strong> (<span class="iconePasse">&#128095;</span> Passe de <strong>Fernando</strong>)<br></div>
+                    <div class="textoCampo"> [3m] <!-- &#10133; --> &#129301;&#128256; Lesão em <strong>Antonio</strong>, substituição por <strong>Jaedson</strong></div>
+                    <div class="textoCampo"> [4m] <!--&#9995;-->&#129000; Cartão Amarelo para <strong>Tuta</strong></div>
+                    <div class="textoCampo"> [6m] <!--&#9995;-->&#128998; Cartão Azul para <strong>Ari</strong></div>
+                    <div class="textoCampo"> [8m] <!--&#9995;-->&#128997; Cartão Vermelho para <strong>Milson</strong></div>
+                    <div class="textoCampo"> [10m] &#128308;&#127942; <!-- &#127937; --> Fim de jogo. <strong>Time Vermelho</strong> venceu!</div>
+                    <!-- <div class="textoCampo"> <strong></strong></div> -->
+                </article>                
+            </section>
+            
+            <section class="quadroJogo">
+                <header id="jogoNumero"><h1><strong>Jogo 2</strong></h1></header>             
+                <div id="placarJogo"><strong>Time Vermelho</strong> &#128308; 1 x 0 &#128309; <strong>Time Azul</strong></div>
+                <!-- ESTÁ FICANDO UM ESPAÇO EM BRANCO EQUIVALENTE AO LOCAL INICIAL DAS FOTOS
+                <div class="jogadorCampo"><img id="zeJ" src="baygon/B/Ze.j.png" alt="Atacante 1"></div>
+                <div class="jogadorCampo"><img id="adJ" src="baygon/B/Ad.j.png" alt="Atacante 2"></div> -->
+                <aside>            
+                    <div class="jogadorCampo"><img id="zeJ" src="baygon/B/Ze.j.png" alt="Atacante 1"></div>
+                    <div class="jogadorCampo"><img id="adJ" src="baygon/B/Ad.j.png" alt="Atacante 2"></div>
+                </aside>
+                <article>
+                    <div class="textoCampo"> &#128308; Time Vermelho: <strong>Ályson</strong>, <strong>Tuta</strong>, <strong>Fernando</strong>, <strong>Zé</strong>, <strong>Adilson</strong></div>
+                    <div class="textoCampo"> &#128309; Time Azul: <strong>Dau</strong>, <strong>Milson</strong>, <strong>Ari</strong>, <strong>Iago</strong>, <strong>Antonio</strong></div>
+                    <div class="textoCampo"> <!-- &#11014;&#11015; -->&#128256; Substituição de <strong>Iago</strong> por <strong>Igor</strong><br></div>
+                    <div class="textoCampo"> &#128226; <b>Início de partida</b><!-- na <strong>Arena Baygon</strong>--></div>
+                    <div class="textoCampo"> [1m] <!--&#10060;-->&#129349; Chute na trave por <strong>Adilson</strong></div>
+                    <div class="textoCampo"> [2m] &#9917; Gol de <strong>Zé</strong> (<span class="iconePasse">&#128095;</span> Passe de <strong>Fernando</strong>)<br></div>
+                    <div class="textoCampo"> [3m] <!-- &#10133; --> &#129301;&#128256; Lesão em <strong>Antonio</strong>, substituição por <strong>Jaedson</strong></div>
+                    <div class="textoCampo"> [4m] <!--&#9995;-->&#129000; Cartão Amarelo para <strong>Tuta</strong></div>
+                    <div class="textoCampo"> [6m] <!--&#9995;-->&#128998; Cartão Azul para <strong>Ari</strong></div>
+                    <div class="textoCampo"> [8m] <!--&#9995;-->&#128997; Cartão Vermelho para <strong>Milson</strong></div>
+                    <div class="textoCampo"> [10m] &#128308;&#127942; <!-- &#127937; --> Fim de jogo. <strong>Time Vermelho</strong> venceu!</div>
+                    <!-- <div class="textoCampo"> <strong></strong></div> -->
+                </article>                
+            </section>
+
+            <section class="quadroJogo">
+                <header id="jogoNumero"><h1><strong>Jogo 1</strong></h1></header>             
+                <div id="placarJogo"><strong>Time Vermelho</strong> &#128308; 1 x 0 &#128309; <strong>Time Azul</strong></div>
+                <!-- ESTÁ FICANDO UM ESPAÇO EM BRANCO EQUIVALENTE AO LOCAL INICIAL DAS FOTOS
+                <div class="jogadorCampo"><img id="zeJ" src="baygon/B/Ze.j.png" alt="Atacante 1"></div>
+                <div class="jogadorCampo"><img id="adJ" src="baygon/B/Ad.j.png" alt="Atacante 2"></div> -->
+                <aside>            
+                    <div class="jogadorCampo"><img id="zeJ" src="baygon/B/Ze.j.png" alt="Atacante 1"></div>
+                    <div class="jogadorCampo"><img id="adJ" src="baygon/B/Ad.j.png" alt="Atacante 2"></div>
+                </aside>
+                <article>
+                    <div class="textoCampo"> &#128308; Time Vermelho: <strong>Ályson</strong>, <strong>Tuta</strong>, <strong>Fernando</strong>, <strong>Zé</strong>, <strong>Adilson</strong></div>
+                    <div class="textoCampo"> &#128309; Time Azul: <strong>Dau</strong>, <strong>Milson</strong>, <strong>Ari</strong>, <strong>Iago</strong>, <strong>Antonio</strong></div>
+                    <div class="textoCampo"> <!-- &#11014;&#11015; -->&#128256; Substituição de <strong>Iago</strong> por <strong>Igor</strong><br></div>
+                    <div class="textoCampo"> &#128226; <b>Início de partida</b><!-- na <strong>Arena Baygon</strong>--></div>
+                    <div class="textoCampo"> [1m] <!--&#10060;-->&#129349; Chute na trave por <strong>Adilson</strong></div>
+                    <div class="textoCampo"> [2m] &#9917; Gol de <strong>Zé</strong> (<span class="iconePasse">&#128095;</span> Passe de <strong>Fernando</strong>)<br></div>
+                    <div class="textoCampo"> [3m] <!-- &#10133; --> &#129301;&#128256; Lesão em <strong>Antonio</strong>, substituição por <strong>Jaedson</strong></div>
+                    <div class="textoCampo"> [4m] <!--&#9995;-->&#129000; Cartão Amarelo para <strong>Tuta</strong></div>
+                    <div class="textoCampo"> [6m] <!--&#9995;-->&#128998; Cartão Azul para <strong>Ari</strong></div>
+                    <div class="textoCampo"> [8m] <!--&#9995;-->&#128997; Cartão Vermelho para <strong>Milson</strong></div>
+                    <div class="textoCampo"> [10m] &#128308;&#127942; <!-- &#127937; --> Fim de jogo. <strong>Time Vermelho</strong> venceu!</div>
+                    <!-- <div class="textoCampo"> <strong></strong></div> -->
+                </article>                
+            </section>
+        
+        </article>
+        </main>
+        <footer>
+           <small>&copy; Associação Baygon</small>
+        </footer>
+</body>
+
+</html>
