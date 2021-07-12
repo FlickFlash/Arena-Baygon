@@ -8,70 +8,10 @@
     <meta name="author" content="Júnior Dantas">
     <meta name="generator" content="Visual Studio Code">
     <meta name="Keywords" content="Associação Baygon, Arena Baygon, Futebol">
-    <title>Associação Baygon</title>
+    <title>Arena Baygon</title>
+    <link rel="stylesheet" href="estiloarena.css">
+
     <style>
-        body {
-            height: 1000px;
-            /* PRECISO APRENDER A DEFINIR O PADRÃO DO BACKGROUND EM TODA A PÁGINA (O CINZA VOLTA A APARECER ONDE DEVERIA SER SÓ VERDE)*/
-            background: linear-gradient(to bottom, #bbbfc8 0, #bbbfc8 150px, green 0, green 800px, #bbbfc8 0, #bbbfc8 130px, green 0);
-        }
-
-        header {
-            background-color: #bbbfc8;
-        }
-
-        nav#login {
-            padding: 2px 2px;
-        }
-
-        nav#login a {
-            background-color: rgb(27, 170, 27);
-            border: 1px solid black;
-            padding: 2px 2px;
-            margin-left: -1px;
-        }
-
-        nav#login a:hover {
-            background-color: indianred;
-        }
-
-        ul {
-            margin: 0px;
-            padding: 0px;
-        }
-/* style="width: 90%;min-height: 100px; max-height: 130px; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;"> */
-        nav#menu ul {
-            /* position: relative; left: 50%; transform: translate(-50%);  NÃO FUNCIONOU */
-            /* O ajuste para centralizar foi feito "manualmente", preciso ajustar para visualização em celular */
-            white-space: nowrap;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            clear: both; /* ADICIONEI O COMANDO "CLEAR" E REMOVI "MARGIN-TOP" */
-        }
-
-        nav#menu li {
-            display: inline-block;
-            text-align: center;
-            margin-bottom: 20px;
-            margin-left: -4px;
-            border: 1px solid #F93; /* Decidir manter ou tirar o contorno */
-        }
-
-        nav#menu li a {
-            text-decoration: none;
-            display: block;
-            font: "Times New Roman";
-            font-size: 30px;
-            color: #F93;
-            background-color: rgb(75, 75, 75);
-            letter-spacing: -0.05em;
-            padding: 10px 30px;
-        }
-
-        nav#menu li a:hover {
-            background-color: indianred;
-        }
 
         article {
             background-color: white;
@@ -127,7 +67,7 @@
         } 
 
         tbody tr:nth-child(2) {
-            background-color: aqua
+            background-color: lightskyblue;
         } 
 
         tbody tr:nth-child(3) {
@@ -135,42 +75,35 @@
         } 
 
         footer {
-            /* NÃO CONSEGUI FAZER O BACKGROUND PREENCHER TODA A LARGURA DA PÁGINA */
-            margin-top: 20px; /* PRECISO DEFINIR O MINIMO DA MARGEM, PARA O CASO DE A PÁGINA SER CURTA */
-            background-color: #bbbfc8;
-            padding: 5px 10px;            
+            margin-top: 44px; /* AJUSTE PORQUE A PAGINA ESTAVA PEQUENA EM ALTURA, E O FOOTER SUBIU */
         }
+
     </style>
 </head>
 
 <body>
     <main>
         <header>
-            <!-- CONSEGUIR IMAGEM QUE ALTERE DE "ARENA" PARA "ASSOCIAÇÃO" -->
-            <img src="Baygon/arena.baygon.jpg" alt="Arena Baygon"
-                style="width: 90%;min-height: 100px; max-height: 130px; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
-                <!-- AJUSTE "AUTOMÁTICO" DA IMAGEM DE "TÍTULO" -->
+            <img id="imagemBaygon" src="Baygon/arena.baygon.jpg" alt="Arena Baygon">
         </header>
 
         <nav id=login>
-            <!-- ELEMENTOS "REGISTRO" E "LOGIN" DEVERIAM ESTAR EM "NAV", MAS INVADEM "ARTICLE"-->
-            <a href="registro.html" style="color: #F93; float: right; text-decoration: none;">Registre-se</a>
-            <a href="login.html" style="color: #F93; float: right; text-decoration: none;">Login</a> <!-- &nbsp; (ESPAÇO) -->
+            <a href="registro.html">Registre-se</a>
+            <a href="login.html">Login</a>
         </nav>
         <nav id="menu">
-            <!-- ELEMENTOS DO MENU FICARAM DESCENTRALIZADOS (PARA A ESQUERDA) POR CAUSA DOS ELEMENTOS "REGISTRO" E "LOGIN", 
-                SENDO QUE SE CHOCAM QUANDO A JANELA É REDUZIDA -->
             <ul>
-                <li><a href="index.html" style="color: #F93;">Início</a></li>
-                <li><a href="videos.html" style="color: #F93">Vídeos</a></li>
-                <li><a href="membros.html" style="color: #F93">Membros</a></li>
-                <li><a href="Rankings.html" style="color: #F93">Rankings</a></li>
-                <li><a href="partidas.html" style="color: #F93">Partidas</a></li>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="videos.html">Vídeos</a></li>
+                <li><a href="membros.html">Membros</a></li>
+                <li><a href="Rankings.html">Rankings</a></li>
+                <li><a href="partidas.html">Partidas</a></li>
             </ul>
         </nav>
         <article>
+            <!-- PRECISO AJUSTAR O LAYOUT PARA QUANDO A JANELA FOR REDUZIDA LATERALMENTE -->
             <!-- ESTRUTURA DE TABELA PERFEITA -->
-            <!-- PRECISO COLETAR OS DADOS DA TABELA AUTOMATICAMENTE (FIREBASE + JAVASCRIPT?) -->
+            <!-- PRECISO COLETAR OS DADOS DA TABELA AUTOMATICAMENTE (MySQL + NODEJS?) -->
             <!-- PRECISO ORDENAR OS JOGADORES DA TABELA, CONFORME RANKING, AUTOMATICAMENTE (JAVASCRIPT?) -->
             <!-- FALTA FINALIZAR DEMAIS TABELAS APÓS A DO RANKING GERAL ESTAR CONCLUÍDA -->
             <table>

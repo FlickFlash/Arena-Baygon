@@ -9,69 +9,13 @@
     <meta name="generator" content="Visual Studio Code">
     <meta name="Keywords" content="Associação Baygon, Arena Baygon, Futebol">
     <title>Arena Baygon</title>
+    <link rel="stylesheet" href="estiloarena.css">
+
     <style>
-        body {
-            background: linear-gradient(to bottom,  #bbbfc8 150px, green 151px, green 50000px);
-        }
 
-        header {
-            background-color: #bbbfc8;
-        }
-
-        nav#login {
-            padding: 2px 2px;
-        }
-
-        nav#login a {
-            background-color: rgb(27, 170, 27);
-            border: 1px solid black;
-            padding: 2px 2px;
-            margin-left: -1px;
-        }
-
-        nav#login a:hover {
-            background-color: indianred;
-        }
-
-        ul {
-            margin: 0px;
-            padding: 0px;
-        }
-        nav#menu ul {
-
-            white-space: nowrap;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            clear: both;
-        }
-
-        nav#menu li {
-            display: inline-block;
-            text-align: center;
-            margin-bottom: 5px;
-            margin-left: -4px;
-            border: 1px solid #F93;
-        }
-
-        nav#menu li a {
-            text-decoration: none;
-            display: block;
-            font: "Times New Roman";
-            font-size: 30px;
-            color: #F93;
-            background-color: rgb(75, 75, 75);
-            letter-spacing: -0.05em;
-            padding: 10px 30px;
-        }
-
-        nav#menu li a:hover {
-            background-color: indianred;
-        }
-
-        nav#membrosmenu {
-            /* PENSAR NA POSSIBILIDADE DE MODIFICAR PARA MENU HORIZONTAL ABAIXO DO MENU PRINCIPAL*/
-            margin: 10px 10px;
+        nav#membrosMenu {
+            /* (FEITO) PENSAR NA POSSIBILIDADE DE MODIFICAR PARA MENU HORIZONTAL ABAIXO DO MENU PRINCIPAL*/
+            margin: -10px 10px 10px;
             list-style:none;
             display: flex;
             flex-direction: row;
@@ -79,7 +23,7 @@
             justify-content: center;
         }
 
-        nav#membrosmenu p {
+        nav#membrosMenu p {
             text-align: center;
             background-color: rgb(126, 38, 38);
             border: 1px solid;
@@ -87,14 +31,14 @@
             margin-left: -1px;
         }
 
-        nav#membrosmenu a {
+        nav#membrosMenu a {
             font-size: 15px;
             text-decoration: none;
             color: black;
             font-weight: bold;
         }
 
-        nav#membrosmenu p:hover {
+        nav#membrosMenu p:hover {
             background-color: tomato;
         }
 
@@ -111,18 +55,18 @@
             justify-content: center;
         }
 
-        .fotomembro {
+        .fotoMembro {
             border: 1px solid;
 
         }
 
-        #quadromembroid {
+        #quadroMembroID {
             justify-content: center;
             display: flex;
             flex-flow: wrap; /* Faz o conteúdo (quadros) "descer" de linha */
         }
 
-        .quadromembro {
+        .quadroMembro {
             border: 1px solid;
             padding: 5px;
             text-align: justify;
@@ -130,36 +74,34 @@
             margin: 10px;
         }
     
-        .quadrotitulo {
+        .quadroTitulo {
             text-align: center;
             
         }
 
-        .quadrotitulo a {
+        .quadroTitulo a {
             line-height: 1.5em;
+        }
+
+        figure p {
+            margin: 5px auto;
         }
 
         figcaption a {
             text-decoration: none;
         }
 
-        footer {
-            margin: 20px -8px -10px -10px;
-            /* margin-top: 20px;
-            margin-left: -10px;
-            margin-right: -8px;
-            margin-bottom: -10px; */
-            background-color: #bbbfc8;
-            padding: 5px 10px;            
+        .nomePerfil {
+            line-height: 10px;
         }
+
     </style>
 </head>
 
 <body>
     <main>
         <header>
-            <img src="Baygon/arena.baygon.jpg" alt="Arena Baygon"
-                style="width: 90%;min-height: 100px; max-height: 130px; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+            <img id="imagemBaygon" src="Baygon/arena.baygon.jpg" alt="Arena Baygon">
         </header>
 
         <nav id=login>
@@ -176,30 +118,32 @@
             </ul>
         </nav>
 
-        <nav id="membrosmenu">
-            <li id="membrosativos"><a href="membros.html"><p>Membros Ativos</p></a></li>  
-            <li><a href="membrosrecorrentes.html"><p>Membros Recorrentes</p></a></li>
-            <li><a href="membrosinativos"><p>Membros Inativos</p></a></li>
+        <nav id="membrosMenu">
+            <li id="membrosAtivos"><a href="membros.html"><p>Membros Ativos</p></a></li>  
+            <li><a href="membrosRecorrentes.html"><p>Membros Recorrentes</p></a></li>
+            <li><a href="membrosInativos"><p>Membros Inativos</p></a></li>
         </nav>
 
         <article><p><h1>Membros Ativos</h1></p>
-            <div id="quadromembroid">
-                <figure class="quadromembro">
+            <div id="quadroMembroID">
+                <figure class="quadroMembro">
                     <!-- TENTAR MANTER TODAS AS FOTOS COM PROPORÇÃO 184X184 -->
-                    <img class="fotomembro" src="baygon/Membros Ativos/Ad.png" alt="Adilson Muritiba">
-                    <figcaption class="quadrotitulo"><a href="">Adilson 'Príncipe' Muritiba</a></figcaption>
-                    Presidente da Associação, artilheiro e campeão do ranking geral de todas as temporadas.
+                    <img class="fotoMembro" src="baygon/Membros Ativos/Ad.png" alt="Adilson Muritiba">
+                    <figcaption class="quadroTitulo"><a href="">Adilson 'Príncipe' Muritiba</a></figcaption>
+                    <p>Presidente da Associação, artilheiro e campeão do ranking geral de todas as temporadas.</p>
+                    (Nome no site: <a class="nomePerfil" href="">Adilson</a>)
                 </figure>
 
-                <figure class="quadromembro">
-                    <img class="fotomembro" src="Baygon/Membros Ativos/FF.pb.png" alt="José Dantas">
-                    <figcaption class="quadrotitulo"><a href="">José 'Zé' Dantas</a></figcaption>
-                    Comparado ao Dhalsim devido à capacidade de estender as pernas para alcançar a bola.
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="Baygon/Membros Ativos/FF.pb.png" alt="José Dantas">
+                    <figcaption class="quadroTitulo"><a href="">José 'Zé' Dantas</a></figcaption>
+                    <p>Comparado ao Dhalsim devido à capacidade de estender as pernas para alcançar a bola.</p>
+                    (Nome no site: <a class="nomePerfil" href="">Zé</a>)
                 </figure>
 
-                <figure class="quadromembro">
-                    <img class="fotomembro" src="" alt="Foto">
-                    <figcaption class="quadrotitulo"><a href="">Nome</a></figcaption>
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="" alt="Foto">
+                    <figcaption class="quadroTitulo"><a href="">Nome</a></figcaption>
                     Descrição
                     ds
                     ds
@@ -224,51 +168,51 @@
 
                 </figure>
                 
-                <figure class="quadromembro">
-                    <img class="fotomembro" src="" alt="Foto">
-                    <figcaption class="quadrotitulo"><a href="">Nome</a></figcaption>
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="" alt="Foto">
+                    <figcaption class="quadroTitulo"><a href="">Nome</a></figcaption>
                     Descrição
                 </figure>
 
-                <figure class="quadromembro">
-                    <img class="fotomembro" src="" alt="Foto">
-                    <figcaption class="quadrotitulo"><a href="">Nome</a></figcaption>
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="" alt="Foto">
+                    <figcaption class="quadroTitulo"><a href="">Nome</a></figcaption>
                     Descrição
                 </figure>
 
-                <figure class="quadromembro">
-                    <img class="fotomembro" src="" alt="Foto">
-                    <figcaption class="quadrotitulo"><a href="">Nome</a></figcaption>
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="" alt="Foto">
+                    <figcaption class="quadroTitulo"><a href="">Nome</a></figcaption>
                     Descrição
                 </figure>
 
-                <figure class="quadromembro">
-                    <img class="fotomembro" src="" alt="Foto">
-                    <figcaption class="quadrotitulo"><a href="">Nome</a></figcaption>
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="" alt="Foto">
+                    <figcaption class="quadroTitulo"><a href="">Nome</a></figcaption>
                     Descrição
                 </figure>
 
-                <figure class="quadromembro">
-                    <img class="fotomembro" src="" alt="Foto">
-                    <figcaption class="quadrotitulo"><a href="">Nome</a></figcaption>
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="" alt="Foto">
+                    <figcaption class="quadroTitulo"><a href="">Nome</a></figcaption>
                     Descrição
                 </figure>
 
-                <figure class="quadromembro">
-                    <img class="fotomembro" src="" alt="Foto">
-                    <figcaption class="quadrotitulo"><a href="">Nome</a></figcaption>
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="" alt="Foto">
+                    <figcaption class="quadroTitulo"><a href="">Nome</a></figcaption>
                     Descrição
                 </figure>
 
-                <figure class="quadromembro">
-                    <img class="fotomembro" src="" alt="Foto">
-                    <figcaption class="quadrotitulo"><a href="">Nome</a></figcaption>
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="" alt="Foto">
+                    <figcaption class="quadroTitulo"><a href="">Nome</a></figcaption>
                     Descrição
                 </figure>
 
-                <figure class="quadromembro">
-                    <img class="fotomembro" src="" alt="Foto">
-                    <figcaption class="quadrotitulo"><a href="">Nome</a></figcaption>
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="" alt="Foto">
+                    <figcaption class="quadroTitulo"><a href="">Nome</a></figcaption>
                     Descrição
                 </figure>
             </div>
