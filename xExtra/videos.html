@@ -12,60 +12,168 @@
     <link rel="stylesheet" href="estiloarena.css">
 
     <style>
+        @media (min-width: 600px){
+            nav#videoMenu {
+                /* PENSAR NA POSSIBILIDADE DE MODIFICAR PARA MENU HORIZONTAL ABAIXO DO MENU PRINCIPAL*/
+                margin: 10px 10px;
+                list-style:none;
+                float: left;
+            }
 
-        nav#videoMenu {
-            /* PENSAR NA POSSIBILIDADE DE MODIFICAR PARA MENU HORIZONTAL ABAIXO DO MENU PRINCIPAL*/
-            margin: 10px 10px;
-            list-style:none;
-            float: left;
+            nav#videoMenu p {
+                text-align: center;
+                margin-bottom: -17px;
+                background-color: rgb(126, 38, 38);
+                border: 1px solid;
+                padding: 5px 10px;
+            }
+
+            nav#videoMenu a {
+                font-size: 15px;
+                text-decoration: none;
+                color: black;
+                font-weight: bold;
+            }
+
+            nav#videoMenu p:hover {
+                background-color: tomato;
+            }
+
+            article {
+                background-color: white;
+                padding: 20px;
+                width: fit-content;
+                height: fit-content;
+                max-width: 1000px;
+                border-radius: 10px;
+                box-shadow: 3px 3px 10px black;
+                margin: 20px auto auto 150px; /* CIMA, DIREITA, BAIXO, ESQUERDA */
+                text-align: center;
+                /* display: flex; FAZ O TEXTO SER ESCRITO TODO LADO A LADO, EM BLOCOS */
+                /* flex-direction: row; NÃO PERCEBI DIFERENÇA NO EFEITO DO COMANDO */
+                justify-content: center;
+            }
+
+            .videosIncorp {
+                margin: 5px;
+            }
+
         }
 
-        nav#videoMenu p {
-            text-align: center;
-            margin-bottom: -17px;
-            background-color: rgb(126, 38, 38);
-            border: 1px solid;
-            padding: 5px 10px;
+        @media (min-width: 426px) and (max-width: 599px) {
+            nav#videoMenu {                
+                margin: -20px 10px 30px;
+                list-style:none;
+                /*display: flex;
+                flex-direction: row; */
+                
+            }
+
+            nav#videoMenu li{   
+                width:200px;
+                margin: 0 auto -16px;
+
+            }
+
+            nav#videoMenu p {
+                text-align: center;
+                margin-bottom: 0px;
+                background-color: rgb(126, 38, 38);
+                border: 1px solid;
+                padding: 5px 5px;
+            }
+
+            nav#videoMenu a {
+                font-size: 15px;
+                text-decoration: none;
+                color: black;
+                font-weight: bold;
+            }
+
+            nav#videoMenu p:hover {
+                background-color: tomato;
+            }
+
+            article {
+                background-color: white;
+                padding: 20px;
+                width: fit-content;
+                height: fit-content;
+                max-width: 600px;
+                border-radius: 10px;
+                box-shadow: 3px 3px 10px black;
+                margin: 20px auto auto auto; /* CIMA, DIREITA, BAIXO, ESQUERDA */
+                text-align: center;
+                /* display: flex; FAZ O TEXTO SER ESCRITO TODO LADO A LADO, EM BLOCOS */
+                /* flex-direction: row; NÃO PERCEBI DIFERENÇA NO EFEITO DO COMANDO */
+                justify-content: center;
+            }
+
+            .videosIncorp {
+                margin: 5px;
+            }
         }
 
-        nav#videoMenu a {
-            font-size: 15px;
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-        }
+        @media (max-width: 425px) {
+            nav#videoMenu {                
+                margin: -20px 10px 30px;
+                list-style:none;
+                /*display: flex;
+                flex-direction: row; */
+                
+            }
 
-        nav#videoMenu p:hover {
-            background-color: tomato;
-        }
+            nav#videoMenu li{   
+                width:200px;
+                margin: 0 auto -16px;
 
-        article {
-            background-color: white;
-            padding: 20px;
-            width: fit-content;
-            height: fit-content;
-            max-width: 1000px;
-            border-radius: 10px;
-            box-shadow: 3px 3px 10px black;
-            margin: 20px auto auto 150px; /* CIMA, DIREITA, BAIXO, ESQUERDA */
-            text-align: center;
-            /* display: flex; FAZ O TEXTO SER ESCRITO TODO LADO A LADO, EM BLOCOS */
-            /* flex-direction: row; NÃO PERCEBI DIFERENÇA NO EFEITO DO COMANDO */
-            justify-content: center;
-        }
+            }
 
-        .videosIncorp {
-            margin: 5px;
+            nav#videoMenu p {
+                text-align: center;
+                margin-bottom: 0px;
+                background-color: rgb(126, 38, 38);
+                border: 1px solid;
+                padding: 5px 5px;
+            }
+
+            nav#videoMenu a {
+                font-size: 15px;
+                text-decoration: none;
+                color: black;
+                font-weight: bold;
+            }
+
+            nav#videoMenu p:hover {
+                background-color: tomato;
+            }
+
+            article {
+                background-color: white;
+                padding: 10px 0px;
+                width: fit-content;
+                height: fit-content;
+                max-width: 400px;
+                border-radius: 10px;
+                box-shadow: 3px 3px 10px black;
+                margin: 20px auto auto -5px; /* CIMA, DIREITA, BAIXO, ESQUERDA */
+                text-align: center;
+                /* display: flex; FAZ O TEXTO SER ESCRITO TODO LADO A LADO, EM BLOCOS */
+                /* flex-direction: row; NÃO PERCEBI DIFERENÇA NO EFEITO DO COMANDO */
+                justify-content: center;
+            }
+
+            .videosIncorp {
+                margin: 5px;
+            }
         }
+        
 
     </style>
 </head>
 
 <body>    
-    <header>
-        <img id="imagemBaygon" src="Baygon/arena.baygon.jpg" alt="Arena Baygon">
-            <!-- AJUSTE "AUTOMÁTICO" DA IMAGEM DE "TÍTULO" -->
-    </header>
+    <header id="imageBaygon"></header>
 
     <nav id=login>
         <!-- ELEMENTOS "REGISTRO" E "LOGIN" DEVERIAM ESTAR EM "NAV", MAS INVADEM "ARTICLE"-->
@@ -86,7 +194,7 @@
     <nav id="videoMenu">
         <li id="tempAtual"><a href="temporada8"><p>Temporada 8</p></a></li>  
         <li><a href="torneiosfinais.html"><p>Torneios Finais</p></a></li>
-        <li><a href="especiais"><p>Especiais</p></a></li>
+        <li><a href="especiais"><p>Eventos Especiais</p></a></li>
         <li><a href="temporada7"><p>Temporada 7</p></a></li>
         <li><a href="temporada6"><p>Temporada 6</p></a></li>
         <li><a href="temporada5"><p>Temporada 5</p></a></li>
