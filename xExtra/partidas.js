@@ -65,6 +65,7 @@ function initConfig() {
     confirmTeamColor.innerHTML = "OK";
     confirmTeamColor.setAttribute("class", "confirm-setup");
     confirmTeamColor.setAttribute("id", "ConfirmTeamColorID");
+    document.getElementById("allEvents").appendChild(confirmTeamColor);
     
 
 
