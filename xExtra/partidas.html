@@ -146,11 +146,11 @@
                 border: 1px solid;
             }
 
-            article {
+            article.all-events {
                 max-width: 1100px;
                 max-height: 354px;
                 margin: 5px auto 10px 255px;
-
+                
                 border: 1px solid;
                 overflow: auto;
             }
@@ -243,9 +243,9 @@
                 float: left;   
             }
 
-            article {
+            article.all-events {
                 max-width: 400px;
-                margin: 5px auto 10px 0px;
+                margin: 5px auto 10px px;
                 max-height: 300px;
                 border: 1px solid;
                 overflow: auto;
@@ -260,6 +260,24 @@
                 padding-left: 1px;
                 padding-right: 1px;
             }
+
+            span.icone-estrela {
+            position: relative;
+            top: -1px;
+            }
+
+        }
+
+
+        article.config-start-art {
+                width: 300px;
+                height: 350px;
+            }
+
+        div.config-button {
+            margin: 20px auto;
+            align-content: center;
+            text-align: center;
         }
 
         .texto-campo:nth-child(even) {
@@ -274,7 +292,8 @@
             padding-right: 2px;
         }
 
-        span.iconePasse {
+
+        span.icone-passe {
             font-size: large;
             position: relative;
             top: -3px;
@@ -301,129 +320,34 @@
             </ul>
         </nav>
 
-        <main>
+        <main id="allMatches">
         
             <!-- 🔴&#128308; 🟠&#128992; 🟡&#128993; 🟢&#128994; 🔵&#128309; 🟣&#128995; ⚫️&#9899; ⚪️&#9898; 🟤&#128996;
             PRECISO VERIFICAR TODAS AS CORES DE COLETES DA ASSOCIAÇÃO -->
-            <section class="quadro-jogo">
-                <header id="jogoNumero"><h1><strong>Jogo 3</strong></h1></header>             
 
-                <aside>            
+
+            <!-- <section class="quadro-jogo" id="infoTable"> -->
+                <!--<header id="jogoNumero"><h1><strong></strong></h1></header>-->
+                <!--<aside id="bgCampo">
                     <div id="time1">
                         <div class="jogador-campo"><img id="jogadorT1P1" src="baygon/B/Ze.j.png " alt="Goleiro"></div>
-                        <div class="jogador-campo"><img id="jogadorT1P2" src="baygon/B/Ad.j.png" alt="Defensor 1"></div>
-                        <div class="jogador-campo"><img id="jogadorT1P3" src="baygon/B/Ze.j.png " alt="Defensor 2"></div>
-                        <div class="jogador-campo"><img id="jogadorT1P4" src="baygon/B/Ad.j.png" alt="Atacante 1"></div>
-                        <div class="jogador-campo"><img id="jogadorT1P5" src="baygon/B/Ze.j.png " alt="Atacante 2"></div>
                     </div>
                     <div id="time2">
                         <div class="jogador-campo"><img id="jogadorT2P1" src="baygon/B/Ze.j.png " alt="Goleiro"></div>
-                        <div class="jogador-campo"><img id="jogadorT2P2" src="baygon/B/Ad.j.png" alt="Defensor 1"></div>
-                        <div class="jogador-campo"><img id="jogadorT2P3" src="baygon/B/Ze.j.png " alt="Defensor 2"></div>
-                        <div class="jogador-campo"><img id="jogadorT2P4" src="baygon/B/Ad.j.png" alt="Atacante 1"></div>
-                        <div class="jogador-campo"><img id="jogadorT2P5" src="baygon/B/Ze.j.png " alt="Atacante 2"></div>
                     </div>
+                    <div id="placarJogo"><strong>Time Vermelho</strong> &#128308; 2 x 0 &#128309; <strong>Time Azul</strong></div>
                 </aside>
-                <div id="placarJogo"><strong>Time Vermelho</strong> &#128308; 1 x 0 &#128309; <strong>Time Azul</strong></div>
-                <!-- <div id="time1Placar" style="float: left;text-align: right; width: 115px;"><strong>Time Vermelho</strong> &#128308;</div>
-                <div id="placarCentral" style="float: left; text-align: center; width: 30px; margin-bottom: 10px;"><strong>1 x 0</strong></div>
-                <div id="time2Placar" style="float: left; text-align: left; width: 115px">&#128309; <strong>Time Azul</strong></div>
-                -->
-                <article>
-                    
+                <article id="allEvents" class="all-events">
                     <div class="texto-campo"> &#128308; Time Vermelho: <strong>Ályson</strong>, <strong>Tuta</strong>, <strong>Fernando</strong>, <strong>Zé</strong>, <strong>Adilson</strong></div>
-                    <div class="texto-campo"> &#128309; Time Azul: <strong>Dau</strong>, <strong>Milson</strong>, <strong>Ari</strong>, <strong>Iago</strong>, <strong>Antonio</strong></div>
-                    <div class="texto-campo"> <!-- &#11014;&#11015; -->&#128256; Substituição de <strong>Iago</strong> por <strong>Igor</strong><br></div>
-                    <div class="texto-campo"> &#128226; <b>Início de partida</b><!-- na <strong>Arena Baygon</strong>--></div>
-                    <div class="texto-campo"> [1m] <!--&#10060;-->&#129349; Chute na trave por <strong>Adilson</strong></div>
-                    <div class="texto-campo"> [2m] &#9917; Gol de <strong>Zé</strong> (<span class="iconePasse">&#128095;</span> Passe de <strong>Fernando</strong>)<br></div>
-                    <div class="texto-campo"> [3m] <!-- &#10133; --> &#129301;&#128256; Lesão em <strong>Antonio</strong>, substituição por <strong>Jaedson</strong></div>
-                    <div class="texto-campo"> [4m] <!--&#9995;-->&#129000; Cartão Amarelo para <strong>Tuta</strong></div>
-                    <div class="texto-campo"> [6m] <!--&#9995;-->&#128998; Cartão Azul para <strong>Ari</strong></div>
-                    <div class="texto-campo"> [8m] <!--&#9995;-->&#128997; Cartão Vermelho para <strong>Milson</strong></div>
-                    <div class="texto-campo"> [10m] &#128308;&#127942; <!-- &#127937; --> Fim de jogo. <strong>Time Vermelho</strong> venceu!</div>
-                    <!-- <div class="texto-campo"> <strong></strong></div> -->
-                </article>                
-            </section>
-            
-            <section class="quadro-jogo">
-                <header id="jogoNumero"><h1><strong>Jogo 2</strong></h1></header>             
-                
-                <!-- ESTÁ FICANDO UM ESPAÇO EM BRANCO EQUIVALENTE AO LOCAL INICIAL DAS FOTOS
-                <div class="jogador-campo"><img id="zeJ" src="baygon/B/Ze.j.png" alt="Atacante 1"></div>
-                <div class="jogador-campo"><img id="adJ" src="baygon/B/Ad.j.png" alt="Atacante 2"></div> -->
-                <aside>            
-                    <div class="jogador-campo"><img id="zeJ" src="baygon/B/Ze.j.png" alt="Atacante 1"></div>
-                    <div class="jogador-campo"><img id="adJ" src="baygon/B/Ad.j.png" alt="Atacante 2"></div>
-                </aside>
-                <div id="placarJogo"><strong>Time Vermelho</strong> &#128308; 1 x 0 &#128309; <strong>Time Azul</strong></div>
-                <article>
-                    <div class="texto-campo"> &#128308; Time Vermelho: <strong>Ályson</strong>, <strong>Tuta</strong>, <strong>Fernando</strong>, <strong>Zé</strong>, <strong>Adilson</strong></div>
-                    <div class="texto-campo"> &#128309; Time Azul: <strong>Dau</strong>, <strong>Milson</strong>, <strong>Ari</strong>, <strong>Iago</strong>, <strong>Antonio</strong></div>
-                    <div class="texto-campo"> <!-- &#11014;&#11015; -->&#128256; Substituição de <strong>Iago</strong> por <strong>Igor</strong><br></div>
-                    <div class="texto-campo"> &#128226; <b>Início de partida</b><!-- na <strong>Arena Baygon</strong>--></div>
-                    <div class="texto-campo"> [1m] <!--&#10060;-->&#129349; Chute na trave por <strong>Adilson</strong></div>
-                    <div class="texto-campo"> [2m] &#9917; Gol de <strong>Zé</strong> (<span class="iconePasse">&#128095;</span> Passe de <strong>Fernando</strong>)<br></div>
-                    <div class="texto-campo"> [3m] <!-- &#10133; --> &#129301;&#128256; Lesão em <strong>Antonio</strong>, substituição por <strong>Jaedson</strong></div>
-                    <div class="texto-campo"> [4m] <!--&#9995;-->&#129000; Cartão Amarelo para <strong>Tuta</strong></div>
-                    <div class="texto-campo"> [6m] <!--&#9995;-->&#128998; Cartão Azul para <strong>Ari</strong></div>
-                    <div class="texto-campo"> [8m] <!--&#9995;-->&#128997; Cartão Vermelho para <strong>Milson</strong></div>
-                    <div class="texto-campo"> [10m] &#128308;&#127942; <!-- &#127937; --> Fim de jogo. <strong>Time Vermelho</strong> venceu!</div>
-                    <!-- <div class="texto-campo"> <strong></strong></div> -->
-                </article>                
-            </section>
+                </article>-->
+            <!-- </section> -->
+            <article class="config-start-art" id="configStartArt">    
+                <div class="config-button" id="initConfigButton"><input type="button" value="Iniciar Configurações" onclick="initConfig()"></div>
+            </article>    
 
-            <section class="quadro-jogo">
-                <header id="jogoNumero"><h1><strong>Jogo 1</strong></h1></header>             
-                
-                <!-- ESTÁ FICANDO UM ESPAÇO EM BRANCO EQUIVALENTE AO LOCAL INICIAL DAS FOTOS
-                <div class="jogador-campo"><img id="zeJ" src="baygon/B/Ze.j.png" alt="Atacante 1"></div>
-                <div class="jogador-campo"><img id="adJ" src="baygon/B/Ad.j.png" alt="Atacante 2"></div> -->
-                <aside>            
-                    <div class="jogador-campo"><img id="zeJ" src="baygon/B/Ze.j.png" alt="Atacante 1"></div>
-                    <div class="jogador-campo"><img id="adJ" src="baygon/B/Ad.j.png" alt="Atacante 2"></div>
-                </aside>
-                <div id="placarJogo"><strong>Time Vermelho</strong> &#128308; 1 x 0 &#128309; <strong>Time Azul</strong></div>
-                <article>
-                    <input type="button" onclick="mostrarPais()">
-                    
-                    <div class="form-group">
-                        <label for="exampleInputCountry">Monte o 1º time:</label>
-                            <select class="form-control" id="exampleInputCountry" name="country">
-                                <option value="" selected="selected">Selecione a cor</option>
-                                <option value="Time Azul" style="background-color: steelblue;">&#128309; Time Azul</option>
-                                <option value="Time Roxo" style="background-color: slateblue;">&#128995; Time Roxo</option> 
-                                <option value="Time Vermelho" style="background-color: red;">&#128308; Time Vermelho</option>                                                           
-                            </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="exampleInputCountry">Defina o goleiro:</label>
-                            <select class="form-control" id="exampleInputCountry" name="country">
-                                <option value="" selected="selected" >Selecione o jogador</option>
-                                <option value="Adilson">&#128308; Adilson</option>
-                                <option value="Ze">&#128308; Zé</option>
-                                <option value="Indefinido">Indefinido</option>
-                            </select>
-                        </div>
-                        
-                </article>                
-            </section>
-        
-        </article>
         </main>
 
-        <script>
-            function mostrarPais() {
-                <div class="form-group">
-                    <label for="exampleInputCountry">País</label>
-                        <select class="form-control" id="exampleInputCountry" name="country">
-                            <option value="" selected="selected">Selecione um país</option>
-                            <option value="United States">United States</option>
-                        </select>
-                </div>
-            }
-        </script>
+        <script src="partidas.js"></script>
         <footer>
            <small>&copy; Associação Baygon</small>
         </footer>

@@ -343,6 +343,17 @@ body {
     }
 }
 
+input[type="button"] {
+    cursor: pointer;
+}
+
+button.confirm-setup {
+    cursor: pointer;
+    margin: 5px;
+    padding: 5px;
+    display: block;
+}
+
 footer {
     /* NÃO CONSEGUI FAZER O BACKGROUND PREENCHER TODA A LARGURA DA PÁGINA */
     margin-top: 20px; /* PRECISO DEFINIR O MINIMO DA MARGEM, PARA O CASO DE A PÁGINA SER CURTA */
