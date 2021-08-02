@@ -36,7 +36,7 @@
             caption {
                 font-size: 20px;
                 font-weight: bold;
-                margin-bottom: -1px;
+                margin: 2px 2px 0 2px;
                 border: 1px solid;
                 padding: 10px;
             }
@@ -45,6 +45,10 @@
                 border: 1px solid;
                 margin: 10px 0px;
                 padding: 5px;
+                width: fit-content;
+                max-width: 100%;
+                display: block;
+                overflow-y: auto;
             }
 
             th {
@@ -58,6 +62,7 @@
                 background-color: white;
                 padding: 20px;
                 width: fit-content;
+                max-width: 80% !important;
                 height: fit-content;
                 min-height: 350px;
                 border-radius: 10px;
@@ -71,14 +76,21 @@
 
             table {
                 border: 1px solid;
-                margin: 10px -10px;
+                margin: 10px 0px;
                 padding: 5px;
+                width: fit-content;
+                max-width: 100%;
+                display: block;
+                overflow-y: auto;
             }
 
             caption {
+                position: relative;
                 font-size: 20px;
                 font-weight: bold;
                 margin-bottom: -1px;
+                margin-left: 2px;
+                margin-right: 2px;
                 border: 1px solid;
                 padding: 10px;
             }
@@ -89,13 +101,13 @@
             article {
                 background-color: white;
                 padding: 15px;
-                font-size: 0.7em;
-                width: fit-content;
+                font-size: 0.9em;
+                max-width: 90% !important;
                 height: fit-content;
                 min-height: 350px;
                 border-radius: 10px;
                 box-shadow: 3px 3px 10px black;
-                margin: auto -5px; /* CIMA, DIREITA, BAIXO, ESQUERDA */
+                margin: auto 5px; /* CIMA, DIREITA, BAIXO, ESQUERDA */
                 text-align: center;
                 /* display: flex; FAZ O TEXTO SER ESCRITO TODO LADO A LADO, EM BLOCOS */
                 /* flex-direction: row; NÃO PERCEBI DIFERENÇA NO EFEITO DO COMANDO */
@@ -104,14 +116,17 @@
 
             table {
                 border: 1px solid;
-                margin: 10px -11px;
+                margin: 10px -8px;
                 padding: 0px;
+                width: auto;                
+                display: block;
+                overflow-y: auto;
             }
 
             caption {
                 font-size: 16px;
                 font-weight: bold;
-                margin-bottom: -1px;
+                margin: 2px 2px 0 2px;
                 border: 1px solid;
                 padding: 10px;
             }
@@ -137,7 +152,36 @@
             border: 1px solid;         
         }
 
+        th:first-child{
+            background-color: lightgreen;
+            position: sticky;
+            left: 0;
+        }
 
+        td:nth-child(1) {
+            position: sticky;
+            left: 0;
+        }
+
+        tbody tr:nth-child(even) td:first-child{
+            background-color: antiquewhite;
+        }
+
+        tbody tr:nth-child(odd) td:first-child{
+            background-color: lightgray;
+        }
+
+        tbody tr:nth-child(1) td:first-child{
+            background-color: goldenrod;
+        } 
+
+        tbody tr:nth-child(2) td:first-child{
+            background-color: lightskyblue;
+        } 
+
+        tbody tr:nth-child(3) td:first-child{
+            background-color: coral;
+        } 
 
         tbody tr:nth-child(even) {
             background-color: antiquewhite;

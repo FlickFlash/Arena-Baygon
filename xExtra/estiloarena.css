@@ -1,4 +1,6 @@
 body {
+    margin: 0;
+    padding: 0;
     background: green;
 }
 
@@ -10,7 +12,7 @@ body {
         background-size: contain;
         background-position: center;
         background-color: #b6b8c4;
-        margin: -8px -8px 5px -8px;
+
         min-height: 140px;
         width: auto;
         height: 140px;
@@ -28,7 +30,7 @@ body {
         background-color: #b6b8c4;
         background-size: contain;
         background-position: center;
-        margin: -8px -8px 5px -8px;
+        margin: -8px 0px 5px 0px;
         min-height: 140px;
         width: auto;
         height: 140px;
@@ -46,7 +48,7 @@ body {
         /* background-color: #b6b8c4; */
         background-size: contain;
         background-position: center;
-        margin: -35px -8px -20px -8px;
+        margin: -35px 0px -20px 0;
         min-height: 140px;
         width: auto;
         display: block;
@@ -58,7 +60,7 @@ body {
     nav#login {
         padding: 0px 0px;
         margin-bottom: 47px;
-        margin-right: -5px;
+        margin-right: 5px;
     }
 
     nav#login a {
@@ -80,7 +82,7 @@ body {
     nav#login {
         padding: 0px 0px;
         margin-bottom: 42px;
-        margin-right: -5px;
+        margin-right: 5px;
     }
 
     nav#login a {
@@ -99,7 +101,7 @@ body {
     }
 }
 
-@media (min-width: 700px) {
+@media (min-width: 740px) {
     nav#menu ul {
         white-space: nowrap;
         display: flex;
@@ -155,7 +157,7 @@ body {
     }
 }
 
-@media (min-width: 580px) and (max-width: 719px) {
+@media (min-width: 580px) and (max-width: 739px) {
     nav#menu ul {
         white-space: nowrap;
         display: flex;
@@ -338,7 +340,7 @@ body {
         padding: 5.9px;
     }
 
-    nav#menu li a:hover {
+    nav#menu li a:hover {        
         background-color: indianred;
     }
 }
@@ -350,18 +352,19 @@ input[type="button"] {
 button.confirm-setup {
     cursor: pointer;
     margin: 5px;
-    padding: 5px;
-    display: block;
+    padding: 3px 5px;
+    display: inline;
+    flex-direction: row;
 }
 
 footer {
+    width: 100%;
     /* NÃO CONSEGUI FAZER O BACKGROUND PREENCHER TODA A LARGURA DA PÁGINA */
     margin-top: 20px; /* PRECISO DEFINIR O MINIMO DA MARGEM, PARA O CASO DE A PÁGINA SER CURTA */
-    margin-left: -10px; /* PREENCHIDO O ESPAÇO DA ESQUERDA */
-    margin-right: -8px; /* PREENCHIDO O ESPAÇO DA DIREITA, MAS AINDA É PRECISO OTIMIZAR PARA SMARTPHONES */
+    margin-left:0px; /* PREENCHIDO O ESPAÇO DA ESQUERDA */
+    margin-right: 0px;/* PREENCHIDO O ESPAÇO DA DIREITA, MAS AINDA É PRECISO OTIMIZAR PARA SMARTPHONES */
     margin-bottom: -10px; /* MARGEM DE SEGURANÇA */
     background-color: #bbbfc8;
-    padding: 5px 10px; 
-    width: auto;        
+    padding: 5px 0px 5px 0px;      
     clear: both; /* PARA EVITAR DE O FOOTER CHOCAR COM ELEMENTOS QUE ESTEJAM FLUTUANDO */
 }

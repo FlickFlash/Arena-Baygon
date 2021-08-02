@@ -10,6 +10,7 @@
     <meta name="Keywords" content="Associação Baygon, Arena Baygon, Futebol">
     <title>Arena Baygon</title>
     <link rel="stylesheet" href="estiloarena.css">
+    <script src="jquery-3.6.0.min.js"></script>
     
     <style>
        
@@ -25,7 +26,7 @@
                 clear: left;
             }
 
-            header#jogoNumero {
+            header.jogo-numero {
                 background-color: white;
                 text-align: center;
                 margin-right: auto;
@@ -179,7 +180,12 @@
                 clear: left;
             }
 
-            header#jogoNumero {
+            h2 {
+                font-size: 16px;
+                text-align: center;
+            }
+
+            header.jogo-numero {
                 background-color: white;
                 text-align: center;
                 margin: -5px auto;
@@ -270,14 +276,35 @@
 
 
         article.config-start-art {
-                width: 300px;
-                height: 350px;
+                width: 290px;
+                min-height: 350px;
             }
 
         div.config-button {
             margin: 20px auto;
             align-content: center;
             text-align: center;
+        }
+
+
+        form {
+            text-align: center;
+            margin: auto 5px;
+            display: inline-block;
+        }
+
+        button.confirm-setup{
+            display: inline-block;
+        }
+
+        div.confirm-init-div{
+            display: flex;
+            align-content: center;
+            justify-content: center;
+        }
+
+        div.choose-players-title {
+            margin: 5px;
         }
 
         .texto-campo:nth-child(even) {
@@ -342,7 +369,9 @@
                 </article>-->
             <!-- </section> -->
             <article class="config-start-art" id="configStartArt">    
-                <div class="config-button" id="initConfigButton"><input type="button" value="Iniciar Configurações" onclick="initConfig()"></div>
+                <div class="config-button" id="initConfigDiv">
+                    <button id="initConfigButton" onclick="initConfig()">Iniciar Configurações</button>
+                </div>
             </article>    
 
         </main>

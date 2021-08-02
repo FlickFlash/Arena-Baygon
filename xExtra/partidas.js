@@ -1,21 +1,54 @@
-let matchNumber = 0
-let teamNumber = 0
-var todasCoresTimes = ['','Time Azul', 'Time Roxo', 'Time Vermelho']
-var todasCoresCirculos = ['', '&#128309;', '&#128995;', '&#128308;']
-var todasCoresBackground = ['', 'steelblue', 'slateblue', 'red']
-var jogadoresBaygon = ['', 'Adilson', 'Zé', 'Ályson', 'Tuta', 'Fernando', 'Dau', 'Milson', 'Ari', 'Iago', 'Antonio', 'Jaedson', 'Igor'].sort(function (a, b) {
-    return a.localeCompare(b);
-});
-const jogadorPosition = ['', 'Goleiro', 'Defensor 1', 'Defensor 2', 'Atacante 1', 'Atacante 2']
-let contagemTimes = 0
-let contagemJogadores = 0
+let matchNumber = 0;
+let teamNumber = 0;
 
-var totalTimes
-var jogadoresEmCadaTime
+let todasCoresTimes = ['','Time Azul', 'Time Roxo', 'Time Rosa', 'Time Vermelho', 'Time Verde Claro', 'Time Verde Escuro'];
+let todasCoresCirculos = ['', '&#128309;', '&#128995;', '&#128995;', '&#128308;', '&#128994', '&#128994'];
+let todasCoresBackground = ['', 'steelblue', 'slateblue', 'hotpink', 'red', 'chartreuse', 'forestgreen'];
+let jogadorBaygonImagem = []
+let jogadoresBaygon = ['', 'Adilson', 'Zé', 'Ályson', 'Tuta', 'Fernando', 'Dau', 'Milson', 'Ari', 'Iago', 'Antonio', 'Jaedson', 'Igor']
+arraySort(jogadoresBaygon)
+const jogadorPosition = ['', 'Goleiro', 'Defensor 1', 'Defensor 2', 'Atacante 1', 'Atacante 2'];
+let contagemTimes = 0;
+let contagemJogadores = 1;
 
-console.log(jogadoresBaygon)
+let totalTimes = 0;
+let jogadoresEmCadaTime = 0;
+let escolhaCor = 0;
+let escolhaJogador = 0;
+let defTime;
+/*
+$(function (e) {
+   $("#configStartArt").append(`<img class='jogador-campo' src='${jogadorBaygonImagem[2]}'>`) 
+});*/
 
-var todosTimes = {
+function incluirJogador(nome) {
+    jogadoresBaygon.push(nome)
+    jogadorBaygonImagem.push(`Baygon/B/${nome}.png`)
+    arraySort(jogadoresBaygon)
+    arraySort(jogadorBaygonImagem)
+    return nome
+}
+
+function arraySort(e) {
+    e.sort(function (a, b) {
+        return a.localeCompare(b);
+    });
+}
+
+
+
+let i = 0
+while (jogadorBaygonImagem.length < jogadoresBaygon.length) {
+    jogadorBaygonImagem.push(`Baygon/B/${jogadoresBaygon[i]}.png`)
+    i++
+}
+
+incluirJogador('João')
+console.log("jogadoresBaygon", jogadoresBaygon)
+console.log("jogadorBaygonImagem", jogadorBaygonImagem)
+
+
+let todosTimes = {
     Time0:[''], 
     Time1:['Zé'], 
     Time2:['']
@@ -37,7 +70,7 @@ function initConfig() {
 
     //Settings' Title
     $(function (e) {
-        $("article#configStartArt").append("<header style='text-align:center;'><h2>Configurações de Times</h2></header>")
+        $("article#configStartArt").append("<header style='text-align:center;'><h2>Configuração de Times</h2></header>")
     });
 
     //Total Number of Teams
@@ -54,7 +87,7 @@ function jogadoresPorTime() {
         alert('Escolha um número de times de 2 a 8');
     } else {
         $(function (e) {
-            $("div#configNumeroTimes").remove();
+            $("div#configNumeroTimes").hide();
             $("article#configStartArt").append(`<div style='margin: 5px;'>Número total de times: ${totalTimes}</div>`)
             $("article#configStartArt").append("<div id='configJogadoresPorTime' style='margin: 5px'>Número de jogadores em cada time: <input id='inputJogadoresPorTime' type='number' min='5' max='11'><button class='confirm-setup' onclick='colorChoice()'>OK</button></div>")
         });
@@ -62,94 +95,154 @@ function jogadoresPorTime() {
 };
 
 function colorChoice() {
+    console.log("totalTimes", totalTimes)
+
     jogadoresEmCadaTime = Number(document.getElementById("inputJogadoresPorTime").value)
+
     //First Choice of Team Color
     if (jogadoresEmCadaTime < 5 || jogadoresEmCadaTime > 11) {
         alert('Escolha de 5 a 11 jogadores por time')
     } else {
-        teamNumber++
         $(function (e) {
-            $("div#configJogadoresPorTime").remove();
-            $("article#configStartArt").append(`<div style='margin: 5px;'>Número de jogadores por time: ${jogadoresEmCadaTime}</div>`)
-            $("article#configStartArt").append("<form id='formTeam1' style='display: inline-block;'></form>");
-            $("form#formTeam1").append("<label for='corTimeID1'>Monte o 1º time: <label>");
-            $("form#formTeam1").append("<select id='corTimeID1' name='escolhaCorTimeID1'></select>");
-            $("select#corTimeID1").append("<option value='' selected='selected' disabled='disabled'>Selecione a cor</option>");
-            let iColorOptions = 1
-            while (iColorOptions < todasCoresTimes.length) {
-                $("select#corTimeID1").append(`<option value='${iColorOptions}' style='background-color: ${todasCoresBackground[iColorOptions]};'>${todasCoresCirculos[iColorOptions]} ${todasCoresTimes[iColorOptions]}</option>`);
-                    iColorOptions++
-            /*$("select#corTimeID1").append("<option value='' style='background-color:'></option>")
-            $("select#corTimeID1").append(`<option value='2' style='background-color: ${todasCoresBackground[2]};'>${todasCoresCirculos[2]} ${todasCoresTimes[2]}</option>`);
-            $("select#corTimeID1").append(`<option value='3' style='background-color: ${todasCoresBackground[3]};'>${todasCoresCirculos[3]} ${todasCoresTimes[3]}</option>`);*/
+            $("div#configJogadoresPorTime").hide();
+            if (contagemTimes == 0) {
+                $("article#configStartArt").append(`<div id='configNumeroJogadores' style='margin: 5px;'>Número de jogadores por time: ${jogadoresEmCadaTime}</div>`)
             }
-        });
-
-        // Confirm Button
-        $(function (e) {
-            $("article#configStartArt").append("<button id='confirmTeamColorID1' class='confirm-setup' onclick='selecionarJogadores()'>OK</button>");
-        });    
-    }
+            contagemTimes++
+            if (contagemTimes <= totalTimes) {
+                
+                $("article#configStartArt").append("<form id='formTeam"+contagemTimes+"' style='display: inline-block;'></form>");
+                $("form#formTeam"+contagemTimes+"").append("<label for='corTimeID"+contagemTimes+"'>Monte o "+contagemTimes+"º time: <label>");
+                $("form#formTeam"+contagemTimes+"").append("<select id='corTimeID"+contagemTimes+"' name='escolhaCorTimeID"+contagemTimes+"'></select>");
+                $("select#corTimeID"+contagemTimes+"").append("<option value='' selected='selected' disabled='disabled'>Selecione a cor</option>");
+                let iColorOptions = 1
+                while (iColorOptions < todasCoresTimes.length) {
+                    $("select#corTimeID"+contagemTimes+"").append(`<option value='${iColorOptions}' style='background-color: ${todasCoresBackground[iColorOptions]};'>${todasCoresCirculos[iColorOptions]} ${todasCoresTimes[iColorOptions]}</option>`);
+                        iColorOptions++
+                /*$("select#corTimeID1").append("<option value='' style='background-color:'></option>")
+                $("select#corTimeID1").append(`<option value='2' style='background-color: ${todasCoresBackground[2]};'>${todasCoresCirculos[2]} ${todasCoresTimes[2]}</option>`);
+                $("select#corTimeID1").append(`<option value='3' style='background-color: ${todasCoresBackground[3]};'>${todasCoresCirculos[3]} ${todasCoresTimes[3]}</option>`);*/
+                }
+                // Confirm Button
+                $(function (e) {
+                    console.log("contagemTimes", contagemTimes)
+                    $("article#configStartArt").append("<button id='confirmTeamColorID"+contagemTimes+"' class='confirm-setup' onclick='selecionarJogadores()'>OK</button>");
+                });    
+            };
+            if (contagemTimes > totalTimes) {
+                $("article#configStartArt").append("<div class='confirm-init-div'></div>");
+                $("div.confirm-init-div").append("<button id='confirmInitMatches' class='confirm-setup' onclick='initMatches()'>Iniciar Partidas</button>");
+            }
+        });        
+    };
 };
-
 
 function selecionarJogadores() {
     //Removal of Form for Color of Team 1
-    let escolhaCor1 = document.getElementById("corTimeID1").value
-    $(function (e) {
-        $("form#formTeam1").remove();
-        $("button#confirmTeamColorID1").remove();
-        $("article#configStartArt").append(`<div id='definindoTime1' class="choose-players-title"><strong>${todasCoresCirculos[escolhaCor1]}${todasCoresTimes[escolhaCor1]}</strong>:</div>`);
-    });
+    escolhaCor = Number(document.getElementById("corTimeID"+contagemTimes+"").value);
     
-    //Adding Team Players
-    $(function (e) {
-        contagemJogadores++
-        $("article#configStartArt").append("<form id='formPlayer1T1'></form>");
-        $("form#formPlayer1T1").append(`<label for='player1TimeID1'>${jogadorPosition[contagemJogadores]} do 1º time: <label>`);
-        $("form#formPlayer1T1").append("<select id='player1TimeID1' name='escolhaJogador1TimeID1'></select>");
-        $("select#player1TimeID1").append(`<option value='' selected='selected' disabled='disabled'>Selecione o ${jogadorPosition[contagemJogadores]}</option>`);
-        let iOptionJogadores = 1
-        while (iOptionJogadores < jogadoresBaygon.length) {
-            $("select#player1TimeID1").append(`<option value='${iOptionJogadores}'>${todasCoresCirculos[escolhaCor1]} ${jogadoresBaygon[iOptionJogadores]}</option>`);
-            iOptionJogadores++
-        }
-            $("select#player1TimeID1").append(`<option value='${iOptionJogadores}'>Indefinido</option>`);
-            /*$("select#player1TimeID1").append("<option value='' style='background-color:'></option>")*/
-            /* $("select#player1TimeID1").append(`<option value='2' style='background-color: ${todasCoresBackground[escolhaCor1]};'>${todasCoresCirculos[escolhaCor1]} ${jogadoresBaygon[iOptionJogadores]}</option>`);*/
-            /* &#128308; Acrescentar círculo colorido dinamicamente de acordo com cor de time escolhida */
-    });
-
-    // Confirm Button
-    $(function (e) {
-        $("article#configStartArt").append("<button id='confirmPlayer1T1ID' class='confirm-setup' onclick='jogadorSelecionado()'>OK</button>");
-    });    
-
-};
-function jogadorSelecionado() {
-    let escolhaJogador1 = document.getElementById("player1TimeID1").value;
-    var defTime1 = document.getElementById("definindoTime1");
-    if  (escolhaJogador1 == "") {
+    if (escolhaCor == "") {
         alert('Escolha uma opção válida!');
-    } else if (Number(escolhaJogador1) == Number(jogadoresBaygon.length)){
-        defTime1.innerHTML += ` Indefinido`
     } else {
         $(function (e) {
-            
-            
-            defTime1.innerHTML += ` ${jogadoresBaygon[escolhaJogador1]}`;
+            $("form#formTeam"+contagemTimes+"").hide();
+            $("button#confirmTeamColorID"+contagemTimes+"").remove();
+            //Condition to keep showing team colors
+            if (contagemJogadores == 1) {
+                $("article#configStartArt").append("<div id='definindoTime"+contagemTimes+"' class='choose-players-title'><strong>"+todasCoresCirculos[escolhaCor]+todasCoresTimes[escolhaCor]+"</strong>:</div>");
+                // Array of All Teams
+                //todosTimes = (todasCoresTimes[escolhaCor]) Need to rectify this
+            };
+        });
+        //Adding Team Players
+        if (contagemJogadores < (jogadoresEmCadaTime + 1)) {
+            $(function (e) {
+                console.log("contagemJogadores", contagemJogadores)
+                $("article#configStartArt").append("<form id='formPlayer"+contagemJogadores+"T"+contagemTimes+"'></form>");
+                $("form#formPlayer"+contagemJogadores+"T"+contagemTimes+"").append("<label id='labelPlayer"+contagemJogadores+"TimeID"+contagemTimes+"' for='player"+contagemJogadores+"TimeID"+contagemTimes+"'>"+jogadorPosition[contagemJogadores]+" do 1º time: <label>");
+                $("form#formPlayer"+contagemJogadores+"T"+contagemTimes+"").append("<select id='player"+contagemJogadores+"TimeID"+contagemTimes+"' name='escolhaJogador"+contagemJogadores+"TimeID"+contagemTimes+"'></select>");
+                $("select#player"+contagemJogadores+"TimeID"+contagemTimes+"").append("<option value='' selected='selected' disabled='disabled'>Selecione</option>");
+                let iOptionJogadores = 1
+                while (iOptionJogadores < jogadoresBaygon.length) {
+                    $("select#player"+contagemJogadores+"TimeID"+contagemTimes+"").append(`<option value='${iOptionJogadores}'>${todasCoresCirculos[escolhaCor]} ${jogadoresBaygon[iOptionJogadores]}</option>`);
+                    iOptionJogadores++
+                }
+                    $("select#player"+contagemJogadores+"TimeID"+contagemTimes+"").append(`<option value='${iOptionJogadores}'>Indefinido</option>`);                    
 
-        });    
+                        // Confirm Button
+                $(function (e) {
+                    $("article#configStartArt").append("<button id='confirmPlayer"+contagemJogadores+"T"+contagemTimes+"' class='confirm-setup' onclick='jogadorSelecionado()'>OK</button>");
+                });  
+            });
+        } else {
+            colorChoice();
+        }
+    };
+};
+
+
+
+function jogadorSelecionado() {
+    console.log("contagemJogadores", contagemJogadores)
+    escolhaJogador = Number(document.getElementById("player"+contagemJogadores+"TimeID"+contagemTimes+"").value);
+    console.log("contagemJogadores", contagemJogadores)
+    defTime = document.getElementById("definindoTime"+contagemTimes+""); 
+    if  (escolhaJogador == "") {
+        alert('Escolha uma opção válida!');
+        return
+    } else if (escolhaJogador == Number(jogadoresBaygon.length)) {
+        defTime.innerHTML += ` Indefinido`
+        $("#labelPlayer"+contagemJogadores+"TimeID"+contagemTimes+"").remove();
+        $("select#player"+contagemJogadores+"TimeID"+contagemTimes+"").hide();
+        $("#confirmPlayer"+contagemJogadores+"T"+contagemTimes+"").remove();
+        contagemJogadores++
+        if (contagemJogadores < (jogadoresEmCadaTime + 1)) {
+            defTime.innerHTML += ",";
+        } else {
+            defTime.innerHTML += ".";
+        };
+        if (contagemJogadores < (jogadoresEmCadaTime + 1)) {
+                selecionarJogadores();                    
+            } else {
+                contagemJogadores = 1;
+                colorChoice();
+            };
+    } else {
+        $(function (e) {
+            defTime.innerHTML += ` ${jogadoresBaygon[escolhaJogador]}`;
+            $("#labelPlayer"+contagemJogadores+"TimeID"+contagemTimes+"").remove();
+            $("select#player"+contagemJogadores+"TimeID"+contagemTimes+"").hide();
+            $("#confirmPlayer"+contagemJogadores+"T"+contagemTimes+"").remove();
+            contagemJogadores++
+            jogadoresBaygon.splice(escolhaJogador, 1);
+
+            if (contagemJogadores < (jogadoresEmCadaTime + 1)) {
+                defTime.innerHTML += ",";
+            } else {
+                defTime.innerHTML += ".";
+            };
+            if (contagemJogadores < (jogadoresEmCadaTime + 1)) {
+                selecionarJogadores();                    
+            } else {            
+                todasCoresTimes.splice(escolhaCor, 1);
+                todasCoresCirculos.splice(escolhaCor, 1);
+                todasCoresBackground.splice(escolhaCor, 1);
+                contagemJogadores = 1;
+                colorChoice();
+            }            
+        });
     };
 };
 
 
 function initMatches() {
     matchNumber++
+    $("#confirmInitMatches").hide();
+    $("article#configStartArt").attr('height', 'fit-content');
 
     //Adding New Section to New Match
     $(function (e) {
-        $("main#allMatches").prepend("<section id='infoTable"+matchNumber+"' class='quadro-jogo'></section>"); //Still need dynamic ID 
+        $("main#allMatches").prepend("<section id='infoTable"+matchNumber+"' class='quadro-jogo'></section>"); 
     });
 
     // Adding Title of the Match
@@ -158,9 +251,11 @@ function initMatches() {
     });
 
     //Adding Soccer Field (Background)
-    $(function (e) {
-        $("section#infoTable"+matchNumber+"").append("<aside></aside>");
-    });
+    if($(window).width() >= 426) {
+        $(function (e) {
+            $("section#infoTable"+matchNumber+"").append("<aside></aside>");
+        });
+    };
 
     // Score of teams come in this position
 
@@ -170,59 +265,6 @@ function initMatches() {
     });
 };
 
-
-/*
-    <label for="exampleInputCountry">Defina o goleiro:</label>
-    <select class="form-control" id="exampleInputCountry" name="country">
-        <option value="" selected="selected" >Selecione o jogador</option>
-        <option value="Adilson">&#128308; Adilson</option>
-        <option value="Ze">&#128308; Zé</option>
-        <option value="Indefinido">Indefinido</option>
-    </select>*/
-
-
-
-
-
-
-function yy() {
-    let labelEscT1P1 = document.createElement("label");
-    labelEscT1P1.setAttribute("for", "escT1P1");
-    labelEscT1P1.innerHTML = "Selecione o goleiro: ";
-
-    let escSelT1P1 = document.createElement("select");
-    escSelT1P1.setAttribute("id","escT1P1")
-
-    let jog001 = document.createElement("option");
-    jog001.value = "1";
-    jog001.innerHTML = `Adilson`; 
-    jog001.style.backgroundColor="steelblue";
-
-    let jog002 = document.createElement("option");
-    jog002.value = "2";
-    jog002.innerHTML = `Zé`;
-    jog002.style.backgroundColor="slateblue";
-
-    let jogIndefinido = document.createElement("option");
-    jogIndefinido.value = "3";
-    jogIndefinido.innerHTML = `INDEFINIDO`;
-    jogIndefinido.style.backgroundColor="red";
-
-
-
-    corTime1.add(jog001, null);
-    corTime1.add(jog002, null);
-    corTime1.add(jogIndefinido, null);
-
-    document.getElementById("allEvents").appendChild(labelCor);
-    document.getElementById("allEvents").appendChild(corTime1);
-
-    var confirmTeamColor = document.createElement("button");
-    confirmTeamColor.innerHTML = "OK";
-    confirmTeamColor.setAttribute ("class", "confirm-setup");
-    document.getElementById("allEvents").appendChild(confirmTeamColor);
-// Fim da escolha de jogadores
-};
 
 /*
     //Adding Score
@@ -309,28 +351,3 @@ function testeTexto() {
     <!-- <div class="texto-campo"> <strong></strong></div> -->
 </article>                
 </section> */
-
-/* HTML parte 2
-<div class="form-group">
-<label for="exampleInputCountry">Monte o 1º time:</label>
-    <select class="form-control" id="exampleInputCountry" name="country">
-        <option value="" selected="selected">Selecione a cor</option>
-        <option value="Time Azul" style="background-color: steelblue;">&#128309; Time Azul</option>
-        <option value="Time Roxo" style="background-color: slateblue;">&#128995; Time Roxo</option> 
-        <option value="Time Vermelho" style="background-color: red;">&#128308; Time Vermelho</option>                                                           
-    </select>
-</div>
-
-<div class="form-group">
-<label for="exampleInputCountry">Defina o goleiro:</label>
-    <select class="form-control" id="exampleInputCountry" name="country">
-        <option value="" selected="selected" >Selecione o jogador</option>
-        <option value="Adilson">&#128308; Adilson</option>
-        <option value="Ze">&#128308; Zé</option>
-        <option value="Indefinido">Indefinido</option>
-    </select>
-</div>
-
-</article>                
-</section>
-*/
