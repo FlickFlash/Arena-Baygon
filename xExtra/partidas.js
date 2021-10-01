@@ -6,7 +6,7 @@ let todasCoresCirculos = ['', '&#128309;', '&#128995;', '&#128995;', '&#128308;'
 let todasCoresBackground = ['', 'steelblue', 'slateblue', 'hotpink', 'red', 'chartreuse', 'forestgreen'];
 let jogadorBaygonImagem = []
 let jogadoresBaygon = ['', 'Adilson', 'Zé', 'Ályson', 'Tuta', 'Fernando', 'Dau', 'Milson', 'Ari', 'Iago', 'Antonio', 'Jaedson', 'Igor']
-arraySort(jogadoresBaygon)
+
 const jogadorPosition = ['', 'Goleiro', 'Defensor 1', 'Defensor 2', 'Atacante 1', 'Atacante 2'];
 let contagemTimes = 0;
 let contagemJogadores = 1;
@@ -16,6 +16,30 @@ let jogadoresEmCadaTime = 0;
 let escolhaCor = 0;
 let escolhaJogador = 0;
 let defTime;
+
+let jogadorEscolhido
+
+let timeEmCampo = 0
+let filtroTime
+let timeCasa
+let timeFora
+let placarT1 = 0
+let placarT2 = 0
+
+/*time: [{
+    nome: '',
+    cor: ''
+}]*/
+const todosTimes = [{
+    time: '',
+    cor: '',
+    jogadores: [{
+        nome: '',
+        foto: ''
+    }]    
+}]
+console.log(todosTimes)
+
 /*
 $(function (e) {
    $("#configStartArt").append(`<img class='jogador-campo' src='${jogadorBaygonImagem[2]}'>`) 
@@ -34,28 +58,22 @@ function arraySort(e) {
         return a.localeCompare(b);
     });
 }
+arraySort(jogadoresBaygon)
 
 
-
-let i = 0
-while (jogadorBaygonImagem.length < jogadoresBaygon.length) {
-    jogadorBaygonImagem.push(`Baygon/B/${jogadoresBaygon[i]}.png`)
-    i++
+function relacionarFotos() {
+    let i = 0
+    while (jogadorBaygonImagem.length < jogadoresBaygon.length) {
+        jogadorBaygonImagem.push(`Baygon/B/${jogadoresBaygon[i]}.png`)
+        i++
+    }
 }
+relacionarFotos()
 
 incluirJogador('João')
 console.log("jogadoresBaygon", jogadoresBaygon)
 console.log("jogadorBaygonImagem", jogadorBaygonImagem)
 
-
-let todosTimes = {
-    Time0:[''], 
-    Time1:['Zé'], 
-    Time2:['']
-};
-
-todosTimes.Time1.push('Adilson')
-console.log(todosTimes.Time1)
 
 $(function (e) {
     $("")
@@ -100,7 +118,8 @@ function colorChoice() {
     jogadoresEmCadaTime = Number(document.getElementById("inputJogadoresPorTime").value)
 
     //First Choice of Team Color
-    if (jogadoresEmCadaTime < 5 || jogadoresEmCadaTime > 11) {
+    // jogadoresEmCadaTime reduced for tests /////////////////
+    if (jogadoresEmCadaTime < 1 || jogadoresEmCadaTime > 11) {
         alert('Escolha de 5 a 11 jogadores por time')
     } else {
         $(function (e) {
@@ -149,12 +168,16 @@ function selecionarJogadores() {
             $("button#confirmTeamColorID"+contagemTimes+"").remove();
             //Condition to keep showing team colors
             if (contagemJogadores == 1) {
+                // WORKING PERFECTLY (?)////////////////////////////////////////////////////////////////////
+                todosTimes[contagemTimes] = {time: todasCoresTimes[escolhaCor], jogadores: [{nome: '', foto:''}]}
+                // todosTimes.push({time: todasCoresTimes[escolhaCor]})
+                //////////////////////////////////////////////////////////////////////
                 $("article#configStartArt").append("<div id='definindoTime"+contagemTimes+"' class='choose-players-title'><strong>"+todasCoresCirculos[escolhaCor]+todasCoresTimes[escolhaCor]+"</strong>:</div>");
                 // Array of All Teams
-                //todosTimes = (todasCoresTimes[escolhaCor]) Need to rectify this
+                //todosTimes = (todasCoresTimes[escolhaCor]) Need to rectify this - DONE
             };
         });
-        //Adding Team Players
+        //Choosing Each Player
         if (contagemJogadores < (jogadoresEmCadaTime + 1)) {
             $(function (e) {
                 console.log("contagemJogadores", contagemJogadores)
@@ -181,7 +204,7 @@ function selecionarJogadores() {
 };
 
 
-
+// Adding Team Players
 function jogadorSelecionado() {
     console.log("contagemJogadores", contagemJogadores)
     escolhaJogador = Number(document.getElementById("player"+contagemJogadores+"TimeID"+contagemTimes+"").value);
@@ -192,6 +215,10 @@ function jogadorSelecionado() {
         return
     } else if (escolhaJogador == Number(jogadoresBaygon.length)) {
         defTime.innerHTML += ` Indefinido`
+        // BUG ISSUES AHEAD ////////////////////////////////////////////////////////////////////
+        // todosTimes.jogadores.nome = 'Indefinido'
+        //////////////////////////////////////////////////////////////////////
+        console.log(todosTimes)
         $("#labelPlayer"+contagemJogadores+"TimeID"+contagemTimes+"").remove();
         $("select#player"+contagemJogadores+"TimeID"+contagemTimes+"").hide();
         $("#confirmPlayer"+contagemJogadores+"T"+contagemTimes+"").remove();
@@ -210,6 +237,23 @@ function jogadorSelecionado() {
     } else {
         $(function (e) {
             defTime.innerHTML += ` ${jogadoresBaygon[escolhaJogador]}`;
+            // ISSUESSSSSS ////////////////////////////////////////////////////////////////////
+            if (contagemJogadores == 1) {
+                // todosTimes[contagemTimes] = {jogadores: [{nome: '', foto:''}]}
+                // todosTimes[contagemTimes].jogadores = {nome: jogadoresBaygon[escolhaJogador], foto:''}
+                todosTimes[contagemTimes].jogadores.push({nome: jogadoresBaygon[escolhaJogador], foto:''})
+                // todosTimes[contagemTimes] = {jogadores: [{nome: jogadoresBaygon[escolhaJogador], foto:''}]}
+            } else {
+                todosTimes[contagemTimes].jogadores.push({nome: jogadoresBaygon[escolhaJogador], foto:''})
+            }
+            /// ALL BELOW ARE WRONG ///////////////////////////////////////////////////////////////////
+            // todosTimes[contagemTimes].jogadores[contagemJogadores] = [{nome: jogadoresBaygon[escolhaJogador], foto:''}]
+            // todosTimes[contagemTimes].jogadores[contagemJogadores].nome = jogadoresBaygon[escolhaJogador]
+            // todosTimes[contagemTimes] += {jogadores: {nome: jogadoresBaygon[escolhaJogador]}}
+            // todosTimes[contagemTimes].jogadores.nome.push(jogadoresBaygon[contagemJogadores])
+            // todosTimes.push({jogadores[contagemTimes].nome: jogadoresBaygon[contagemJogadores]})
+            // todosTimes.push({time: todasCoresTimes[contagemTimes]})
+            //////////////////////////////////////////////////////////////////////
             $("#labelPlayer"+contagemJogadores+"TimeID"+contagemTimes+"").remove();
             $("select#player"+contagemJogadores+"TimeID"+contagemTimes+"").hide();
             $("#confirmPlayer"+contagemJogadores+"T"+contagemTimes+"").remove();
@@ -234,7 +278,42 @@ function jogadorSelecionado() {
     };
 };
 
+ //Adding Article for Match Events
+function addingArticle() {
+    $(function (e) {
+        $("section#infoTable"+matchNumber+"").append("<article id='allEvents"+matchNumber+"' class='all-events'></article>");
+    })
+    chooseTwoTeams()
+}
 
+ function chooseTwoTeams() {
+    timeEmCampo++
+    $(function (e) {        
+        $("article#allEvents"+matchNumber+"").append("<form id='formTimeAJogar"+timeEmCampo+"' style='display: inline-block;'></form>");
+                $("form#formTimeAJogar"+timeEmCampo+"").append("<label for='timeAJogar"+timeEmCampo+"'>Escolha o "+timeEmCampo+"º time do jogo "+matchNumber+": <label>");
+                $("form#formTimeAJogar"+timeEmCampo+"").append("<select id='timeAJogar"+timeEmCampo+"' name='escolhaTimeAJogarID"+timeEmCampo+"'></select>");
+                $("select#timeAJogar"+timeEmCampo+"").append("<option value='' selected='selected' disabled='disabled'>Selecione o time</option>");                
+                let iTimeAJogar = 1
+                while (iTimeAJogar <= totalTimes) {
+                    $("select#timeAJogar"+timeEmCampo+"").append(`<option value='${iTimeAJogar}' id='timeAJogar${iTimeAJogar}'>${todosTimes[iTimeAJogar].time}</option>`) /*style='background-color: ${todasCoresBackground[iTimeAJogar]};'>${todasCoresCirculos[iTimeAJogar]} ${todasCoresTimes[iTimeAJogar]}</option>`);*/                    
+                        iTimeAJogar++
+                }
+                
+                // DISABLE CHOSEN TEAM IS WRONG ///////////////////////////////
+                // $(function (e) {
+                //     $(`timeAJogar${filtroTime}`).attr('disabled', 'disabled');
+                // })
+
+                // Confirm Button
+                $(function (e) {
+                    console.log("timeEmCampo", timeEmCampo)
+                    $("article#allEvents"+matchNumber+"").append("<button id='confirmtimeAJogar"+timeEmCampo+"' class='confirm-setup' onclick='teamPlayingChosen()'>OK</button>");
+                });    
+        
+    });
+}
+
+// Ready to Start the Matches
 function initMatches() {
     matchNumber++
     $("#confirmInitMatches").hide();
@@ -247,7 +326,7 @@ function initMatches() {
 
     // Adding Title of the Match
     $(function (e) {
-        $("section#infoTable"+matchNumber+"").append(`<header class='jogo-numero'><h1><strong>Jogo ${matchNumber}</strong></h1><header>`);
+        $("section#infoTable"+matchNumber+"").append(`<header class='jogo-numero'><h1><strong>Jogo ${matchNumber}</strong></h1></header>`);
     });
 
     //Adding Soccer Field (Background)
@@ -256,15 +335,95 @@ function initMatches() {
             $("section#infoTable"+matchNumber+"").append("<aside></aside>");
         });
     };
+    addingArticle()
 
     // Score of teams come in this position
 
-    //Adding Article for Match Events
-    $(function (e) {
-        $("section#infoTable"+matchNumber+"").append("<article id='allEvents' class='all-events'></article>");
-    });
+   
 };
 
+function teamPlayingChosen() {
+    // let buttonToRemove = document.getElementById("confirmtimeAJogar"+timeEmCampo+"")
+    // buttonToRemove.remove();
+    $("#formTimeAJogar"+timeEmCampo+"").hide();    
+    $("#confirmtimeAJogar"+timeEmCampo+"").remove()
+    $("button#confirmPreMatchSetup"+matchNumber+"").remove();
+
+    if (timeEmCampo%2 == 1) {
+        filtroTime = Number(document.getElementById("timeAJogar"+timeEmCampo+"").value)
+        timeCasa = todosTimes[filtroTime];
+        
+        chooseTwoTeams();
+    } else if (timeEmCampo%2 == 0){
+        filtroTime = Number(document.getElementById("timeAJogar"+timeEmCampo+"").value)
+        timeFora = todosTimes[filtroTime];
+        if (timeCasa == timeFora) {
+            alert("Escolha dois times diferentes")
+        } else {
+            // PRE MATCH
+            $(function (e) {
+                console.log("timeEmCampo", timeEmCampo)
+                $("article#allEvents"+matchNumber+"").append("<button id='confirmPreMatchSetup"+matchNumber+"' class='confirm-setup' onclick='preMatchSetup()'>Começar Partida</button>");
+            });    
+        }
+
+
+    }
+}
+
+function preMatchSetup() {
+        $(function (e) {
+            $("#formTimeAJogar"+timeEmCampo+"").hide();
+            // $("button#confirmTimeAJogar"+timeEmCampo+"").remove()
+            $("button#confirmPreMatchSetup"+matchNumber+"").remove();
+            
+        })
+    
+        // LISTING TEAMS AND PLAYERS
+        // I NEED TO MAKE THE NUMBER OF PLAYERS EQUAL TO THE NUMBER OF 'PLAYERS CHOSEN' ///////////////////////////////////////////////////////////
+        $("article#allEvents"+matchNumber+"").append(`<div id='timeCasa${matchNumber}' class='texto-campo'>${timeCasa.time}: </div>`);
+        textoTimeCasa = document.getElementById(`timeCasa${matchNumber}`)
+        let numeroJogador = 1
+        while (numeroJogador <= jogadoresEmCadaTime) {
+            if (numeroJogador < jogadoresEmCadaTime) {
+                textoTimeCasa.innerHTML += `<strong>${timeCasa.jogadores[numeroJogador].nome}</strong>, `
+                numeroJogador++
+            }
+            if (numeroJogador == jogadoresEmCadaTime) {
+                textoTimeCasa.innerHTML += `<strong>${timeCasa.jogadores[numeroJogador].nome}</strong>.`
+                numeroJogador++
+            }
+        }
+
+        $("article#allEvents"+matchNumber+"").append(`<div id='timeFora${matchNumber}' class='texto-campo'>${timeFora.time}: </div>`);
+        textoTimeFora = document.getElementById(`timeFora${matchNumber}`)
+        numeroJogador = 1
+        while (numeroJogador <= jogadoresEmCadaTime) {
+            if (numeroJogador < jogadoresEmCadaTime) {
+                textoTimeFora.innerHTML += `<strong>${timeFora.jogadores[numeroJogador].nome}</strong>, `
+                numeroJogador++
+            }
+            if (numeroJogador == jogadoresEmCadaTime) {
+                textoTimeFora.innerHTML += `<strong>${timeFora.jogadores[numeroJogador].nome}</strong>.`
+                numeroJogador++
+            }
+        }
+        
+        // $("article#allEvents"+matchNumber+"").append(`<div class='texto-campo'><strong>${timeCasa.time}</strong>: <strong>${timeCasa.jogadores[1].nome}</strong>, <strong>${timeCasa.jogadores[2].nome}</strong>, <strong>${timeCasa.jogadores[3].nome}</strong>, <strong>${timeCasa.jogadores[4].nome}</strong>, <strong>${timeCasa.jogadores[5].nome}</strong>. </div>`);
+        // $("article#allEvents"+matchNumber+"").append(`<div class='texto-campo'><strong>${timeFora.time}</strong>: <strong>${timeFora.jogadores[1].nome}</strong>, <strong>${timeFora.jogadores[2].nome}</strong>, <strong>${timeFora.jogadores[3].nome}</strong>, <strong>${timeFora.jogadores[4].nome}</strong>, <strong>${timeFora.jogadores[5].nome}</strong>. </div>`);
+        // $(function (e) {
+        //     $("article#allEvents"+matchNumber+"").append(`<div class='texto-campo'><strong>${timeCasa.time}</strong>: <strong>${timeCasa.jogadores[1].nome}</strong>. </div>`);
+        // });
+    
+        // START BUTTON
+        // $(function (e) {
+        //     console.log("timeEmCampo", timeEmCampo)
+        //     $("article#allEvents"+matchNumber+"").append("<button id='confirmPreMatchSetup"+matchNumber+"' class='confirm-setup' onclick='preMatchSetup()'>Começar Partida</button>");
+        // });    
+
+}
+
+// $(`section#infoTable ${matchNumber}`).append(`<div id='placarJogo'><strong>${timeCasa}</strong> ${todasCoresCirculos[]} ${placarT1} x ${placarT2} ${todasCoresCirculos[]} <strong>${timeFora}</strong></div>`)
 
 /*
     //Adding Score
