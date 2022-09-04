@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Júnior Dantas">
+    <meta name="generator" content="Visual Studio Code">
+    <meta name="Keywords" content="Associação Baygon, Arena Baygon, Futebol">
+    <title>Arena Baygon</title>
+    <link rel="stylesheet" href="estiloarena.css">
+    <script src="jquery-3.6.0.min.js"></script>
+    
+    <style>
+       
+       @media (min-width: 426px) {
+            main {
+                background-color: white;
+                width: fit-content;
+                margin: 0px auto;
+                border: 1px solid;
+                border-radius: 10px;
+                box-shadow: 3px 3px 10px black;
+                overflow: hidden;
+                clear: left;
+            }
+
+            header.jogo-numero {
+                background-color: white;
+                text-align: center;
+                margin-right: auto;
+            }
+
+            section.quadro-jogo {
+                border: 1px solid; /* DELIMITAÇÃO ENTRE CADA JOGO */
+                padding: 0px 5px 30px 5px; /* (RESOLVIDO com ::after OU OVERFLOW) A borda varia muito com relação a quantidade de texto e largura da tela */
+                margin-bottom: -1px; /* JUNTA AS DUAS LINHAS DA MARGEM INFERIOR E SUPERIOR DA SEGUINTE EM UMA SÓ */
+                overflow: hidden; /* ALTERNATIVA MAIS SIMPLES QUE O "AFTER" */
+            }
+
+            .quadro-jogo h1 {
+                clear: both;
+            }
+
+            /* SUBSTITUÍDO PELO "OVERFLOW" 
+            .quadro-jogo::after {
+                content: "";
+                display: table;
+                clear: both;
+                CÓDIGO PARA A BORDA INCLUIR TODO O CONTEÚDO QUE ESTÁ FLUTUANDO 
+            } */
+
+            #placarJogo {
+                font-size: 14px;
+                border: 1px solid;
+                text-align: center;
+                margin: 10px auto -6px;
+                padding: 5px 0px;
+                background-color: lightgray;
+               
+                margin-left: 255px;
+            }
+
+            div#time1 .jogador-campo img {
+                border-radius: 50%;
+                background-color: red;
+                padding: 3px;
+            }
+
+            div#time2 .jogador-campo img {
+                border-radius: 50%;
+                background-color: blue;
+                padding: 3px;
+                overflow: hidden;
+            }
+
+            .jogador-campo img#jogadorT1P1 {
+                position: relative;
+                top: 0px;
+                left: 97px;
+    
+            }
+
+            .jogador-campo img#jogadorT1P2 {
+                position: relative;
+                top: 0px;
+                left: 50px;   
+            }
+
+            .jogador-campo img#jogadorT1P3 {
+                position: relative;
+                top: -60px;
+                left: 144px; 
+            }
+
+            .jogador-campo img#jogadorT1P4 {
+                position: relative;
+                top: -50px;
+                left: 50px;    
+            }
+
+            .jogador-campo img#jogadorT1P5 {
+                position: relative;
+                top: -110px;
+                left: 144px;   
+            }
+
+            .jogador-campo img#jogadorT2P1 {
+                position: relative;
+                top: -90px;
+                left: 50px;    
+            }
+
+            .jogador-campo img#jogadorT2P2 {
+                position: relative;
+                top: -150px;
+                left: 144px;    
+            }
+
+            .jogador-campo img#jogadorT2P3 {
+                position: relative;
+                top: -140px;
+                left: 50px;    
+            }
+
+            .jogador-campo img#jogadorT2P4 {
+                position: relative;
+                top: -200px;
+                left: 144px;    
+            }
+
+            .jogador-campo img#jogadorT2P5 {
+                position: relative;
+                top: -195px;
+                left: 97px;
+            }
+
+            aside {
+                float: left;
+                background-image: url(baygon/VerticalCampoArenaBaygon.EDIT.jpg);
+                background-repeat: no-repeat;
+                position: relative;
+                width: 250px;
+                height: 400px;
+                margin: 0px 0px 0px 0px;
+                border: 1px solid;
+            }
+
+            article.all-events {
+                max-width: 1100px;
+                max-height: 354px;
+                margin: 5px auto 10px 255px;
+                
+                border: 1px solid;
+                overflow: auto;
+            }
+
+            article.texto-campo {
+                text-align: left; /* o justificado ficava estranho, deixando muito espaço entre as palavras */
+                margin-bottom: 5px;
+                margin-left: 256px;
+                border: 1px solid; /* DECIDIR SE COM OU SEM BORDA */
+                padding-left: 1px;
+                padding-right: 1px;
+            }
+        }
+
+
+
+        @media (max-width: 425px) {
+            main {
+                background-color: white;
+                max-width: 310px;
+                margin: 0px auto;
+                border: 1px solid;
+                border-radius: 10px;
+                box-shadow: 3px 3px 10px black;
+                overflow: hidden;
+                clear: left;
+            }
+
+            h2 {
+                font-size: 16px;
+                text-align: center;
+            }
+
+            header.jogo-numero {
+                background-color: white;
+                text-align: center;
+                margin: -5px auto;
+            }
+
+
+            section.quadro-jogo {
+                border: 1px solid; /* DELIMITAÇÃO ENTRE CADA JOGO */
+                padding: 0px 5px 10px 5px; /* (RESOLVIDO com ::after OU OVERFLOW) A borda varia muito com relação a quantidade de texto e largura da tela */
+                margin-bottom: -1px; /* JUNTA AS DUAS LINHAS DA MARGEM INFERIOR E SUPERIOR DA SEGUINTE EM UMA SÓ */
+                overflow: hidden; /* ALTERNATIVA MAIS SIMPLES QUE O "AFTER" */
+            }
+
+            .quadro-jogo h1 {
+                clear: both;
+            }
+
+            #placarJogo {
+                font-size: 14px;
+                border: 1px solid;
+                text-align: center;
+                margin: 10px auto -6px;
+                padding: 5px 0px;
+                background-color: lightgray;
+                clear: both;
+            }
+
+            aside {
+            float: left;
+            width: 290px;
+            margin-left: -5px;
+            margin-bottom: 10px;
+            }
+
+            div#time1 {
+                clear: both;
+            }
+
+            div#time1 .jogador-campo img {
+                border-radius: 50%;
+                background-color: red;
+                padding: 3px;
+            }
+
+            div#time2 {
+                clear: both;
+            }
+
+            div#time2 .jogador-campo img {
+                border-radius: 50%;
+                background-color: blue;
+                padding: 3px;
+                overflow: hidden;
+            }
+
+            #jogadorT1P1, #jogadorT1P2, #jogadorT1P3, #jogadorT1P4, #jogadorT1P5 {
+                float: left;
+            }
+
+            #jogadorT2P1, #jogadorT2P2, #jogadorT2P3, #jogadorT2P4, #jogadorT2P5 {  
+                float: left;   
+            }
+
+            article.all-events {
+                max-width: 400px;
+                margin: 5px auto 10px px;
+                max-height: 300px;
+                border: 1px solid;
+                overflow: auto;
+            }
+
+            article.texto-campo {
+                clear: both;
+                float: left;
+                text-align: left; /* o justificado ficava estranho, deixando muito espaço entre as palavras */
+                margin-bottom: 5px;
+                border: 1px solid; /* DECIDIR SE COM OU SEM BORDA */
+                padding-left: 1px;
+                padding-right: 1px;
+            }
+
+            span.icone-estrela {
+            position: relative;
+            top: -1px;
+            }
+
+        }
+
+
+        article.config-start-art {
+                width: 290px;
+                min-height: 350px;
+            }
+
+        div.config-button {
+            margin: 20px auto;
+            align-content: center;
+            text-align: center;
+        }
+
+
+        form {
+            text-align: center;
+            margin: auto 5px;
+            display: inline-block;
+        }
+
+        button.confirm-setup{
+            display: inline-block;
+        }
+
+        div.confirm-init-div{
+            display: flex;
+            align-content: center;
+            justify-content: center;
+        }
+
+        div.choose-players-title {
+            margin: 5px;
+        }
+
+        .texto-campo:nth-child(even) {
+            background-color: antiquewhite;
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+
+        .texto-campo:nth-child(odd) {
+            background-color: lightgray;
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+
+
+        span.icone-passe {
+            font-size: large;
+            position: relative;
+            top: -3px;
+        }
+
+    </style>
+</head>
+
+<body>
+    
+    <header id="imageBaygon"></header>
+
+        <nav id=login>
+            <a href="registro.html">Registre-se</a>
+            <a href="login.html">Login</a>
+        </nav>
+        <nav id="menu">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="videos.html">Vídeos</a></li>
+                <li><a href="membros.html">Membros</a></li>
+                <li><a href="rankings.html">Rankings</a></li>
+                <li><a href="partidas.html">Partidas</a></li>
+            </ul>
+        </nav>
+
+        <main id="allMatches">
+        
+            <!-- 🔴&#128308; 🟠&#128992; 🟡&#128993; 🟢&#128994; 🔵&#128309; 🟣&#128995; ⚫️&#9899; ⚪️&#9898; 🟤&#128996;
+            PRECISO VERIFICAR TODAS AS CORES DE COLETES DA ASSOCIAÇÃO -->
+
+
+            <!-- <section class="quadro-jogo" id="infoTable"> -->
+                <!--<header id="jogoNumero"><h1><strong></strong></h1></header>-->
+                <!--<aside id="bgCampo">
+                    <div id="time1">
+                        <div class="jogador-campo"><img id="jogadorT1P1" src="baygon/B/Ze.j.png " alt="Goleiro"></div>
+                    </div>
+                    <div id="time2">
+                        <div class="jogador-campo"><img id="jogadorT2P1" src="baygon/B/Ze.j.png " alt="Goleiro"></div>
+                    </div>
+                    <div id="placarJogo"><strong>Time Vermelho</strong> &#128308; 2 x 0 &#128309; <strong>Time Azul</strong></div>
+                </aside>
+                <article id="allEvents" class="all-events">
+                    <div class="texto-campo"> &#128308; Time Vermelho: <strong>Ályson</strong>, <strong>Tuta</strong>, <strong>Fernando</strong>, <strong>Zé</strong>, <strong>Adilson</strong></div>
+                </article>-->
+            <!-- </section> -->
+            <article class="config-start-art" id="configStartArt">    
+                <div class="config-button" id="initConfigDiv">
+                    <button id="initConfigButton" onclick="initConfig()">Iniciar Configurações</button>
+                </div>
+            </article>    
+
+        </main>
+
+        <script src="partidas.js"></script>
+        <footer>
+           <small>&copy; Associação Baygon</small>
+        </footer>
+</body>
+
+</html>

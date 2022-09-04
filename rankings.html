@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Júnior Dantas">
+    <meta name="generator" content="Visual Studio Code">
+    <meta name="Keywords" content="Associação Baygon, Arena Baygon, Futebol">
+    <title>Arena Baygon</title>
+    <link rel="stylesheet" href="estiloarena.css">
+
+    <style>
+        /*html {
+            background-color: aqua;
+            position: absolute;
+            width: 100%;
+        }*/
+        @media (min-width: 650px) {
+            article {
+                background-color: white;
+                padding: 20px;
+                width: fit-content;
+                height: fit-content;
+                min-height: 350px;
+                border-radius: 10px;
+                box-shadow: 3px 3px 10px black;
+                margin: auto; /* CIMA, DIREITA, BAIXO, ESQUERDA */
+                text-align: center;
+                /* display: flex; FAZ O TEXTO SER ESCRITO TODO LADO A LADO, EM BLOCOS */
+                /* flex-direction: row; NÃO PERCEBI DIFERENÇA NO EFEITO DO COMANDO */
+                justify-content: center;
+            }
+
+            caption {
+                font-size: 20px;
+                font-weight: bold;
+                margin: 2px 2px 0 2px;
+                border: 1px solid;
+                padding: 10px;
+            }
+
+            table {
+                border: 1px solid;
+                margin: 10px 0px;
+                padding: 5px;
+                width: fit-content;
+                max-width: 100%;
+                display: block;
+                overflow-y: auto;
+            }
+
+            th {
+                padding: 0 10px;
+            }
+
+        }
+
+        @media (min-width: 426px) and (max-width: 649px) {
+            article {
+                background-color: white;
+                padding: 20px;
+                width: fit-content;
+                max-width: 80% !important;
+                height: fit-content;
+                min-height: 350px;
+                border-radius: 10px;
+                box-shadow: 3px 3px 10px black;
+                margin: auto; /* CIMA, DIREITA, BAIXO, ESQUERDA */
+                text-align: center;
+                /* display: flex; FAZ O TEXTO SER ESCRITO TODO LADO A LADO, EM BLOCOS */
+                /* flex-direction: row; NÃO PERCEBI DIFERENÇA NO EFEITO DO COMANDO */
+                justify-content: center;
+            }
+
+            table {
+                border: 1px solid;
+                margin: 10px 0px;
+                padding: 5px;
+                width: fit-content;
+                max-width: 100%;
+                display: block;
+                overflow-y: auto;
+            }
+
+            caption {
+                position: relative;
+                font-size: 20px;
+                font-weight: bold;
+                margin-bottom: -1px;
+                margin-left: 2px;
+                margin-right: 2px;
+                border: 1px solid;
+                padding: 10px;
+            }
+
+        }
+
+        @media (max-width: 426px) {
+            article {
+                background-color: white;
+                padding: 15px;
+                font-size: 0.9em;
+                max-width: 90% !important;
+                height: fit-content;
+                min-height: 350px;
+                border-radius: 10px;
+                box-shadow: 3px 3px 10px black;
+                margin: auto 5px; /* CIMA, DIREITA, BAIXO, ESQUERDA */
+                text-align: center;
+                /* display: flex; FAZ O TEXTO SER ESCRITO TODO LADO A LADO, EM BLOCOS */
+                /* flex-direction: row; NÃO PERCEBI DIFERENÇA NO EFEITO DO COMANDO */
+                justify-content: center;
+            }
+
+            table {
+                border: 1px solid;
+                margin: 10px -8px;
+                padding: 0px;
+                width: auto;                
+                display: block;
+                overflow-y: auto;
+            }
+
+            caption {
+                font-size: 16px;
+                font-weight: bold;
+                margin: 2px 2px 0 2px;
+                border: 1px solid;
+                padding: 10px;
+            }
+
+            th {
+                padding: 0px;
+            }
+
+        }
+
+
+        table, caption, thead, tfoot {
+            background-color: lightgreen;
+        }
+
+
+
+        tfoot {
+            color: gray;
+        }
+
+        tr, th, td {
+            border: 1px solid;         
+        }
+
+        th:first-child{
+            background-color: lightgreen;
+            position: sticky;
+            left: 0;
+        }
+
+        td:nth-child(1) {
+            position: sticky;
+            left: 0;
+        }
+
+        tbody tr:nth-child(even) td:first-child{
+            background-color: antiquewhite;
+        }
+
+        tbody tr:nth-child(odd) td:first-child{
+            background-color: lightgray;
+        }
+
+        tbody tr:nth-child(1) td:first-child{
+            background-color: goldenrod;
+        } 
+
+        tbody tr:nth-child(2) td:first-child{
+            background-color: lightskyblue;
+        } 
+
+        tbody tr:nth-child(3) td:first-child{
+            background-color: coral;
+        } 
+
+        tbody tr:nth-child(even) {
+            background-color: antiquewhite;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: lightgray;
+        }
+
+        tbody tr:nth-child(1) {
+            background-color: goldenrod;
+        } 
+
+        tbody tr:nth-child(2) {
+            background-color: lightskyblue;
+        } 
+
+        tbody tr:nth-child(3) {
+            background-color: coral;
+        } 
+
+    </style>
+</head>
+
+<body>
+    <main>
+        <header id="imageBaygon"></header>
+
+        <nav id=login>
+            <a href="registro.html">Registre-se</a>
+            <a href="login.html">Login</a>
+        </nav>
+        <nav id="menu">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="videos.html">Vídeos</a></li>
+                <li><a href="membros.html">Membros</a></li>
+                <li><a href="Rankings.html">Rankings</a></li>
+                <li><a href="partidas.html">Partidas</a></li>
+            </ul>
+        </nav>
+        <article>
+            <!-- PRECISO AJUSTAR O LAYOUT PARA QUANDO A JANELA FOR REDUZIDA LATERALMENTE -->
+            <!-- ESTRUTURA DE TABELA PERFEITA -->
+            <!-- PRECISO COLETAR OS DADOS DA TABELA AUTOMATICAMENTE (MySQL + NODEJS?) -->
+            <!-- PRECISO ORDENAR OS JOGADORES DA TABELA, CONFORME RANKING, AUTOMATICAMENTE (JAVASCRIPT?) -->
+            <!-- FALTA FINALIZAR DEMAIS TABELAS APÓS A DO RANKING GERAL ESTAR CONCLUÍDA -->
+            <table>
+                <caption>Ranking Geral - Temporada 8</caption>
+                <thead>
+                    <tr>
+                        <th>Jogador</th>
+                        <th>Presenças</th>
+                        <th>Vitórias</th>
+                        <th>Gols</th>
+                        <th>Assistências</th>
+                        <th>Pontuação Geral</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Zé</td>
+                        <td>20</td>
+                        <td>25</td>
+                        <td>21</td>
+                        <td>15</td>
+                        <td>100</td>                    
+                    </tr>
+                    <tr>
+                        <td>João</td>
+                        <td>19</td>
+                        <td>15</td>
+                        <td>10</td>
+                        <td>5</td>
+                        <td>70</td>
+                    </tr>
+                    <tr>
+                        <td>Adilson</td>
+                        <td>20</td>
+                        <td>20</td>
+                        <td>30</td>
+                        <td>10</td>
+                        <td>90</td>
+                    </tr>
+                    <tr>
+                        <td>Carlitos</td>
+                        <td>16</td>
+                        <td>15</td>
+                        <td>11</td>
+                        <td>5</td>
+                        <td>60</td>                    
+                    </tr>
+                    <tr>
+                        <td>Julio</td>
+                        <td>10</td>
+                        <td>5</td>
+                        <td>7</td>
+                        <td>5</td>
+                        <td>40</td>                    
+                    </tr>
+                        <td>Maicon</td>
+                        <td>14</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>8</td>
+                        <td>65</td>                    
+                    </tr>
+                    <tr>
+                        <td>Ruan</td>
+                        <td>12</td>
+                        <td>6</td>
+                        <td>8</td>
+                        <td>6</td>
+                        <td>50</td>                    
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Jogador</th>
+                        <th>Presenças</th>
+                        <th>Vitórias</th>
+                        <th>Gols</th>
+                        <th>Assistências</th>
+                        <th>Pontuação Geral</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </article>
+        <footer>
+            <!-- TAG "SMALL", USADA PARA COPYRIGHT NO FIM DO SITE-->
+           <small>&copy; Associação Baygon</small>
+        </footer>
+    </main>
+</body>
+
+</html>

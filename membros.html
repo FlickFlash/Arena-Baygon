@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Júnior Dantas">
+    <meta name="generator" content="Visual Studio Code">
+    <meta name="Keywords" content="Associação Baygon, Arena Baygon, Futebol">
+    <title>Arena Baygon</title>
+    <link rel="stylesheet" href="estiloarena.css">
+
+    <style>
+
+        nav#membrosMenu {
+            /* (FEITO) PENSAR NA POSSIBILIDADE DE MODIFICAR PARA MENU HORIZONTAL ABAIXO DO MENU PRINCIPAL*/
+            margin: -10px 10px 10px;
+            list-style:none;
+            display: flex;
+            flex-direction: row;
+            clear: both;
+            justify-content: center;
+        }
+
+        nav#membrosMenu p {
+            text-align: center;
+            background-color: rgb(126, 38, 38);
+            border: 1px solid;
+            padding: 5px 10px;
+            margin-left: -1px;
+        }
+
+        nav#membrosMenu a {
+            font-size: 15px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        nav#membrosMenu p:hover {
+            background-color: tomato;
+        }
+
+        article {
+            background-color: white;
+            padding: 20px;
+            width: fit-content;
+            height: fit-content;
+            max-width: 1200px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px black;
+            margin: auto;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .fotoMembro {
+            border: 1px solid;
+
+        }
+
+        #quadroMembroID {
+            justify-content: center;
+            display: flex;
+            flex-flow: wrap; /* Faz o conteúdo (quadros) "descer" de linha */
+        }
+
+        .quadroMembro {
+            border: 1px solid;
+            padding: 5px;
+            text-align: justify;
+            max-width: min-content; /* Mantém o tamanho das bordas laterais, e gera a quebra de texto */
+            margin: 10px;
+        }
+    
+        .quadroTitulo {
+            text-align: center;
+            
+        }
+
+        .quadroTitulo a {
+            line-height: 1.5em;
+        }
+
+        figure p {
+            margin: 5px auto;
+        }
+
+        figcaption a {
+            text-decoration: none;
+        }
+
+        .nomePerfil {
+            line-height: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <main>
+        <header id="imageBaygon"></header>
+
+        <nav id=login>
+            <a href="registro.html" style="color: #F93; float: right; text-decoration: none;">Registre-se</a>
+            <a href="login.html" style="color: #F93; float: right; text-decoration: none;">Login</a>
+        </nav>
+        <nav id="menu">
+            <ul>
+                <li><a href="index.html" style="color: #F93;">Início</a></li>
+                <li><a href="videos.html" style="color: #F93">Vídeos</a></li>
+                <li><a href="membros.html" style="color: #F93">Membros</a></li>
+                <li><a href="rankings.html" style="color: #F93">Rankings</a></li>
+                <li><a href="partidas.html" style="color: #F93">Partidas</a></li>
+            </ul>
+        </nav>
+
+        <nav id="membrosMenu">
+            <li id="membrosAtivos"><a href="membros.html"><p>Membros Ativos</p></a></li>  
+            <li><a href="membrosRecorrentes.html"><p>Membros Recorrentes</p></a></li>
+            <li><a href="membrosInativos"><p>Membros Inativos</p></a></li>
+        </nav>
+
+        <article><p><h1>Membros Ativos</h1></p>
+            <div id="quadroMembroID">
+                <figure class="quadroMembro">
+                    <!-- TENTAR MANTER TODAS AS FOTOS COM PROPORÇÃO 184X184 -->
+                    <img class="fotoMembro" src="baygon/Membros Ativos/Ad.png" alt="Adilson Muritiba">
+                    <figcaption class="quadroTitulo"><a href="">Adilson 'Príncipe' Muritiba</a></figcaption>
+                    <p>Presidente da Associação, artilheiro e campeão do ranking geral de todas as temporadas.</p>
+                    (Nome no site: <a class="nomePerfil" href="">Adilson</a>)
+                </figure>
+
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="Baygon/Membros Ativos/FF.pb.png" alt="José Dantas">
+                    <figcaption class="quadroTitulo"><a href="">José 'Zé' Dantas</a></figcaption>
+                    <p>Comparado ao Dhalsim devido à capacidade de estender as pernas para alcançar a bola.</p>
+                    (Nome no site: <a class="nomePerfil" href="">Zé</a>)
+                </figure>
+
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="" alt="Foto">
+                    <figcaption class="quadroTitulo"><a href="">Nome</a></figcaption>
+                    Descrição
+                    ds
+                    ds
+                    ds
+                    ds
+                    ds
+                    ds
+                    ds
+                    ds
+                    ds
+                    siasdj
+                    siasdj
+                    siasdj
+                    siasdj
+                    siasdj
+                    siasdj
+                    siasdj
+                    siasdj
+                    siasdj
+                    siasdj
+                    siasdj
+
+                </figure>
+                
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="" alt="Foto">
+                    <figcaption class="quadroTitulo"><a href="">Nome</a></figcaption>
+                    Descrição
+                </figure>
+
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="" alt="Foto">
+                    <figcaption class="quadroTitulo"><a href="">Nome</a></figcaption>
+                    Descrição
+                </figure>
+
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="" alt="Foto">
+                    <figcaption class="quadroTitulo"><a href="">Nome</a></figcaption>
+                    Descrição
+                </figure>
+
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="" alt="Foto">
+                    <figcaption class="quadroTitulo"><a href="">Nome</a></figcaption>
+                    Descrição
+                </figure>
+
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="" alt="Foto">
+                    <figcaption class="quadroTitulo"><a href="">Nome</a></figcaption>
+                    Descrição
+                </figure>
+
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="" alt="Foto">
+                    <figcaption class="quadroTitulo"><a href="">Nome</a></figcaption>
+                    Descrição
+                </figure>
+
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="" alt="Foto">
+                    <figcaption class="quadroTitulo"><a href="">Nome</a></figcaption>
+                    Descrição
+                </figure>
+
+                <figure class="quadroMembro">
+                    <img class="fotoMembro" src="" alt="Foto">
+                    <figcaption class="quadroTitulo"><a href="">Nome</a></figcaption>
+                    Descrição
+                </figure>
+            </div>
+            
+        </article>
+        <footer>
+           <small>&copy; Associação Baygon</small>
+        </footer>
+    </main>
+</body>
+
+</html>
